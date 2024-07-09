@@ -1,46 +1,47 @@
 <!doctype html>
 <!-- This website template was created by: Student’s
     First Name Song Student’s Last Name jiahao-->
-<html lang ="en">
+<html lang="en">
 <head>
-    <title>Online learning platform</title>
+    <title>Online learning platform - Login</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Roboto&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="login.js"></script>
 </head>
 <body>
-
-    <div id="container">
+<div id="container">
 
     <!-- Use the header area for the website name or logo -->
     <header>
         <h1 id="logo">Online learning platform</h1>
-        <img src="Images/a4319f6e7bbb8310beefa4db7776753.png" alt="Online learning platform logo" style="max-height: 106%; width: auto;">
+        <img src="images/logo.png" alt="Online learning platform logo" style="max-height: 100%; width: auto;">
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a> </li>
-            <li><a href="course.html">Course</a></li>
-            <li><a href="contact.html"> Contact Us</a></li>
-            <li><a href="logout.html">Logout</a></li>
-         </ul>
+<div id="login_frame">
 
-    </nav>
-    </div>
+    <form onsubmit="login(); return false;">
+        <p><label class="label_input">Username</label><input type="text" id="username" class="text_field"/></p>
+        <p><label class="label_input">Password</label><input type="password" id="password" class="text_field"/></p>
 
-    <main>
-    </main>
+        <div id="login_control">
+            <input type="submit" id="btn_login" value="Login"/>
+            <a id="forget_pwd" href="forget_pwd.html">Forget Password</a>
+            <a id="register" href="register.html">Register</a>
+        </div>
+    </form>
+</div>
 
-    <footer><br>
-        <p>&copy; Copyright 2022. All Rights Reserved.</p>
-        <p><a href="jiahao.song@my.jcu.edu.au">jiahao.song@my.jcu.edu.au</a></p>
-    </footer>
+<footer><br>
+    <p>&copy; Copyright 2022. All Rights Reserved.</p>
+    <p><a href="mailto:jiahao.song@my.jcu.edu.au">jiahao.song@my.jcu.edu.au</a></p>
+</footer>
     <script src="script.js"></script>
+</div>
 </body>
+
 </html>
+
