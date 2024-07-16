@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="static/css/register.css">
     <style>
         .error-message {
             color: red;
@@ -18,7 +18,7 @@
     <div class="header">
         <h2>User Registration</h2>
     </div>
-    <form action="submit_registration.py" method="POST" onsubmit="return validateForm()">
+    <form action="/register" method="POST" onsubmit="return validateForm()">
         <div class="form-control">
             <label for="fullname">Full Name</label>
             <input type="text" id="fullname" name="fullname" required>
@@ -60,7 +60,7 @@
     </form>
 </div>
 
-<script src="validateForm.js"></script>
+<script src="static/validateForm.js"></script>
 
 </body>
 </html>
