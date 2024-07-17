@@ -1,83 +1,121 @@
-<!doctype html>
-
-<html lang ="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Online learning platform</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="static/css/styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySync - Home</title>
+    <link rel="stylesheet" href="static/css/index.css">
 </head>
 <body>
-
-<div id="container">
-
-    <!-- Use the header area for the website name or logo -->
-      <header>
-
-        <img src="static/images/logo.png" alt="Online learning platform logo" style="max-height: 100%; width: auto;">
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="login.html">Login</a></li>
+                <li><a href="javascript:void(0)" id="signup-link">Sign up</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="logo">
+                <img src="static/images/logo.png" alt="StudySync Logo" style="width: 80px; height: auto;">
+            </div>
+        </nav>
     </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Watch Out Vedio Courses</h2>
+                <p>Explore our extensive collection of well-crafted video lectures that aim to make difficult subjects easier to understand. Participate in visually stimulating content at any time or location to improve your learning process.</p>
+            </div>
+            <div class="hero-image">
+                <img src="static/images/online-course.png" alt="Online Course" style="width: 500px; height: auto;">
+            </div>
+        </section>
 
-    <nav>
-        <ul>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/course">Course</a></li>
-            <li><a href="/contact">Contact Us</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
+        <section class="whats-new">
+            <h2>What's new today</h2>
+            <div class="new-courses">
+                <div class="course-card">
+                    <img src="static/images/course1.png" alt="Course 1">
+                    <div class="course-info">
+                        <h3>Aurora</h3>
+                        <p>Some nice book you might be interested in!</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="static/images/course2.png" alt="Course 2">
+                    <div class="course-info">
+                        <h3>Daniel</h3>
+                        <p>How to focus on your work?</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="static/images/course3.png" alt="Course 3">
+                    <div class="course-info">
+                        <h3>David</h3>
+                        <p>Explore the wildlife and nature.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="refresh-button">Fresh</button>
+        </section>
+    </main>
 
-
-    </nav>
-</div>
-
-
- <main>
-
-    <div id="intro">
-        <h1>Introduction</h1>
-        <h1>Welcome to the Index Page</h1>
-
-
-
-
-
-
-        <dl>
-            <dt>Contact Us Time</dt>
-            <dd>
-                <ul>
-                    <li> Mon – Fri: 9.00 am to 6.00 pm </li>
-                    <li> Saturday: 9.00 am to 3.00 pm </li>
-                    <li> Sunday: Relax </li>
-                </ul>
-            </dd>
-        </dl>
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
+                
+                <label for="postcode">Postcode</label>
+                <input type="text" id="postcode" name="postcode" required>
+                
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
     </div>
-    <div class="table-desktop">
 
-        <p><span>  </span></p>
-        <h2>Everyone is welcome to contact us!</h2>
-        <h3>Contact information:</h3>
-        <p class="tel-link"><a href="tel:18613939130">Chinese Tel:18613939130</a></p>
-        <p class="fax-link"><a href="tel:83149559">Singapore Tel: 83149559</a></p>
-    </div>
+    <script>
+        var modal = document.getElementById("signup-modal");
+        var signupLink = document.getElementById("signup-link");
+        var span = document.getElementsByClassName("close")[0];
 
- </main>
+        signupLink.onclick = function() {
+            modal.style.display = "block";
+        }
 
- <footer><br>
-    <p>&copy; Copyright 2022. All Rights Reserved.</p>
-    <p><a href="mailto:jiahao.song@my.jcu.edu.au">jiahao.song@my.jcu.edu.au</a></p>
-</footer>
-<script src="static/js/script.js"></script>
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script src="static/js/index.js"></script>
 </body>
 </html>
-
-
-
-

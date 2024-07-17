@@ -1,0 +1,226 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Updated to align top edges */
+    padding: 50px 20px;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.whats-new {
+    padding: 50px 20px;
+}
+
+.whats-new h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.new-courses {
+    display: flex;
+    justify-content: space-between;
+}
+
+.course-card {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 30%;
+}
+
+.course-card img {
+    width: 100%;
+    height: auto;
+}
+
+.course-info {
+    padding: 20px;
+}
+
+.course-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.course-info p {
+    font-size: 16px;
+    color: #555;
+}
+
+.refresh-button {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    border: none;
+    background: #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float:right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff8000;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #e67300;
+}
+
+/* 在你的CSS文件中添加以下内容 */
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%); /* 开始时模态框在视窗之外 */
+        opacity: 0; /* 开始时透明度为0 */
+    }
+    to {
+        transform: translateY(0); /* 结束时模态框位于正常位置 */
+        opacity: 1; /* 结束时透明度为正常 */
+    }
+}
+
+.modal {
+    display: none; /* 初始状态仍为不显示 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* 背景颜色略透明 */
+    padding-top: 60px;
+    animation: slideInDown 0.5s ease-out; /* 应用动画 */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+}
