@@ -32,8 +32,7 @@
         </div>
     </div>
 
-    <!-- 模态框 -->
-    <div id="signupModal" class="modal">
+    <div id="signUpModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Sign Up</h2>
@@ -56,7 +55,7 @@
                 </div>
                 <div class="input-group">
                     <input type="password" placeholder="Confirm Password" required>
-                    <img src="static/images/no-eye-icon.png" alt="No Eye Icon" class="icon">
+                    <img src="static/images/password-icon.png" alt="Password Icon" class="icon">
                 </div>
                 <div class="input-group">
                     <input type="text" placeholder="Address" required>
@@ -71,6 +70,56 @@
         </div>
     </div>
 
-    <script src="static/js/login.js"></script>
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password-field');
+            const eyeIcon = document.getElementById('toggle-password');
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.src = "static/images/no-eye-icon.png"; 
+            } else {
+                passwordField.type = "password";
+                eyeIcon.src = "static/images/eye-icon.png";
+            }
+        }
+
+        document.getElementById('toggle-password').addEventListener('click', togglePassword);
+
+        var modal = document.getElementById("signUpModal");
+
+        var btn = document.getElementById("sign-up");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password-field').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (!email || !password) {
+                errorMessage.textContent = "Please enter your email and password";
+            } else if (password !== "correctpassword") { 
+                errorMessage.textContent = "Incorrect Password";
+                document.getElementById('password-field').value = ""; 
+            } else {
+                location.href = 'index.html'; 
+            }
+        });
+    </script>
 </body>
 </html>
