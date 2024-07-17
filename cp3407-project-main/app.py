@@ -53,6 +53,9 @@ def login():
             cursor.close()
             db_connection.close()
 
+            # Debugging: print fetched user information
+            print(f"Fetched user: {user}")
+
             if user:
                 session['user'] = user  # Store user information in session
                 return redirect(url_for('dashboard'))
