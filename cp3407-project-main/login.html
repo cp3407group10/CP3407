@@ -3,29 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Login</title>
     <link rel="stylesheet" href="static/css/login.css">
 </head>
 <body>
-<div class="container">
-    <h1>StudySync</h1>
-    <form class="login-form">
-        <h2>Login To Your Account</h2>
-        <div class="input-group">
-            <label for="email"><img src="static/images/email-icon.png" alt="Email Icon" width="20" height="20"> Email</label>
-            <input type="email" id="email" name="email" required>
+    <div class="login-container">
+        <div class="logo-container">
+            <img src="static/images/logo.png" alt="Logo" class="logo">
         </div>
-        <div class="input-group">
-            <label for="password"><img src="static/images/password-icon.png" alt="Password Icon" width="20" height="20"> Password</label>
-            <input type="password" id="password" name="password" required>
-            <img src="static/images/eye-icon.png" alt="Show Password Icon" class="eye-icon" width="17" height="17">
+        <h1>Login to Your Account</h1>
+        <form id="login-form">
+            <div class="input-group">
+                <input type="email" placeholder="Email" id="email" required>
+                <img src="static/images/email-icon.png" alt="Email Icon" class="icon">
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" id="password-field" required>
+                <img src="static/images/password-icon.png" alt="Password Icon" class="icon">
+                <img src="static/images/eye-icon.png" alt="Eye Icon" class="icon eye-icon" id="toggle-password">
+            </div>
+            <button type="submit" class="button">Login</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+        <div class="extra-links">
+            <a href="forget_password.html">Forget your password?</a>
+            <br>
+            <a href="#" id="sign-up">Sign up for free</a>
         </div>
-        <div class="links">
-            <a href="#">Forget your password?</a>
-            <a href="#">Sign up for free</a>
+    </div>
+
+    <!-- 模态框 -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form>
+                <div class="input-group">
+                    <input type="text" placeholder="Username" required>
+                    <img src="static/images/user-icon.png" alt="User Icon" class="icon">
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                    <img src="static/images/email-icon.png" alt="Email Icon" class="icon">
+                </div>
+                <div class="input-group">
+                    <input type="tel" placeholder="Phone" required>
+                    <img src="static/images/phone-icon.png" alt="Phone Icon" class="icon">
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required>
+                    <img src="static/images/password-icon.png" alt="Password Icon" class="icon">
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Confirm Password" required>
+                    <img src="static/images/no-eye-icon.png" alt="No Eye Icon" class="icon">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Address" required>
+                    <img src="static/images/address-icon.png" alt="Address Icon" class="icon">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Postcode" required>
+                    <img src="static/images/postcode-icon.png" alt="Postcode Icon" class="icon">
+                </div>
+                <button type="submit" class="button">Sign Up</button>
+            </form>
         </div>
-        <button type="submit">Login</button>
-    </form>
-</div>
+    </div>
+
+    <script src="static/js/login.js"></script>
 </body>
 </html>
