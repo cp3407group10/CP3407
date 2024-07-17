@@ -1,7 +1,8 @@
 import mysql.connector
-from flask import Flask, request, render_template_string, redirect, url_for,flash
+from flask import Flask, request, render_template_string, redirect, url_for
 
 app = Flask(__name__)
+
 
 # Define database link information
 db_config = {
@@ -12,48 +13,43 @@ db_config = {
     "port": 3306
 }
 
-def read_html(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        return file.read()
 
-def render_template(file_path):
-    return render_template_string(read_html(file_path))
-
-@app.route('/index')
+@app.route('/')
 def index():
-    return render_template('index.html')
+    with open('index.html', encoding='utf-8') as f:
+        html_content = f.read()
+    return render_template_string(html_content)
 
 
+@app.route('/about')
+def about():
+    with open('about.html.', encoding='utf-8') as f:
+        html_content = f.read()
+    return render_template_string(html_content)
 
-@app.route('/login', methods=['GET', 'POST'])
+
+@app.route("/course")
+def course():
+    with open("course.html", encoding='utf-8') as f:
+        html_content = f.read()
+    return render_template_string(html_content)
+
+
+@app.route('/contact')
+def contact():
+    with open('contact.html.', encoding='utf-8') as f:
+        html_content = f.read()
+    return render_template_string(html_content)
+
+
+@app.route('/login')
 def login():
-    if request.method == 'POST':
-        login_field = request.form['login_field']
-        password = request.form['password']
+    with open('login.html', encoding='utf-8') as f:
+        html_content = f.read()
+    return render_template_string(html_content)
 
-        try:
-            # Connect to the database and execute the select operation
-            db_connection = mysql.connector.connect(**db_config)
-            cursor = db_connection.cursor(dictionary=True)
-            select_query = """
-                SELECT * FROM users WHERE (email=%s OR phone=%s OR username=%s) AND password=%s
-            """
-            cursor.execute(select_query, (login_field, login_field, login_field, password))
-            user = cursor.fetchone()
-            cursor.close()
-            db_connection.close()
 
-            if user:
-                return redirect(url_for('index'))  # Redirect to the index page upon successful login
-            else:
-                flash('Invalid login credentials')
-
-        except mysql.connector.Error as err:
-            return f"Error: {err}"
-
-    return render_template_string(read_html('login.html'))
-
-# processing requrests submitted by the registration interface
+# processing requests submitted by the registration interface
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -80,7 +76,14 @@ def register():
             cursor.close()
             db_connection.close()
 
-            return "Registration Successful"
+            # Generate the registration success page with a login button
+            success_html = """
+                <h1>Registration Successful</h1>
+                <p>Thank you for registering, {fullname}!</p>
+                <a href="{login_url}"><button>Go to Login</button></a>
+            """.format(fullname=fullname, login_url=url_for('login'))
+
+            return success_html
 
         except mysql.connector.Error as err:
             return f"Error: {err}"
@@ -88,26 +91,17 @@ def register():
     return render_template_string(open('register.html').read())
 
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
-# Route for course page
-@app.route('/course')
-def course():
-    return render_template('course.html')
-
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
-
 @app.route('/logout')
 def logout():
-    return render_template('logout.html')
+    with open('logout.html', encoding='utf-8') as f:
+        html_content = f.read()
+    return render_template_string(html_content)
 
 
-
-
+# Redirect to the register route when accessing the root URL
+@app.route('/')
+def redirect_to_register():
+    return redirect(url_for('register'))
 
 
 if __name__ == '__main__':
