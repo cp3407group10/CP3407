@@ -11,7 +11,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="/login">Login</a></li>
-                <li><a href="javascript:void(0)" id="signup-link">Sign up</a></li>
+                <li><a href="/register">Sign up</a></li>
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/course">Courses</a></li>
@@ -98,25 +98,6 @@
         </div>
     </div>
 
-    <script>
-        var modal = document.getElementById("signup-modal");
-        var signupLink = document.getElementById("signup-link");
-        var span = document.getElementsByClassName("close")[0];
 
-        signupLink.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-    <script src="static/js/index.js"></script>
 </body>
 </html>
