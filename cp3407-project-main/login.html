@@ -4,31 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="static/css/login.css">
 </head>
 <body>
 <div class="login-container">
     <div class="logo-container">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+        <img src="static/images/logo.png" alt="Logo" class="logo">
     </div>
     <h1>Login to Your Account</h1>
-    <form id="login-form" action="{{ url_for('login') }}" method="POST">
+    <form id="login-form" action="/login" method="POST">
         <div class="input-group">
             <input type="email" name="email" placeholder="Email" id="email" required>
-            <img src="{{ url_for('static', filename='images/email-icon.png') }}" alt="Email Icon" class="icon">
+            <img src="static/images/email-icon.png" alt="Email Icon" class="icon">
         </div>
         <div class="input-group">
             <input type="password" name="password" placeholder="Password" id="password-field" required>
-            <img src="{{ url_for('static', filename='images/password-icon.png') }}" alt="Password Icon" class="icon">
-            <img src="{{ url_for('static', filename='images/eye-icon.png') }}" alt="Eye Icon" class="icon eye-icon" id="toggle-password">
+            <img src="static/images/password-icon.png" alt="Password Icon" class="icon">
+            <img src="static/images/eye-icon.png" alt="Eye Icon" class="icon eye-icon" id="toggle-password">
         </div>
         <button type="submit" class="button">Login</button>
-        <p id="error-message" class="error-message">{{ error_message }}</p>
+        <p id="error-message" class="error-message">   </p>
     </form>
     <div class="extra-links">
         <a href="forget_password.html">Forget your password?</a>
         <br>
-        <a href="#" id="sign-up">Sign up for free</a>
+        <a href="/register" id="sign-up">Sign up for free</a>
     </div>
 </div>
 
@@ -36,34 +36,34 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Sign Up</h2>
-        <form action="{{ url_for('register') }}" method="POST">
+        <form action="/register" method="POST">
             <div class="input-group">
                 <input type="text" name="username" placeholder="Username" required>
-                <img src="{{ url_for('static', filename='images/user-icon.png') }}" alt="User Icon" class="icon">
+                <img src="static/images/user-icon.png" alt="User Icon" class="icon">
             </div>
             <div class="input-group">
                 <input type="email" name="email" placeholder="Email" required>
-                <img src="{{ url_for('static', filename='images/email-icon.png') }}" alt="Email Icon" class="icon">
+                <img src="static/images/email-icon.png" alt="Email Icon" class="icon">
             </div>
             <div class="input-group">
                 <input type="tel" name="phone" placeholder="Phone" required>
-                <img src="{{ url_for('static', filename='images/phone-icon.png') }}" alt="Phone Icon" class="icon">
+                <img src="static/images/phone-icon.png" alt="Phone Icon" class="icon">
             </div>
             <div class="input-group">
                 <input type="password" name="password" placeholder="Password" required>
-                <img src="{{ url_for('static', filename='images/password-icon.png') }}" alt="Password Icon" class="icon">
+                <img src="static/images/password-icon.png" alt="Password Icon" class="icon">
             </div>
             <div class="input-group">
                 <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-                <img src="{{ url_for('static', filename='images/password-icon.png') }}" alt="Password Icon" class="icon">
+                <img src="static/images/password-icon.png" alt="Password Icon" class="icon">
             </div>
             <div class="input-group">
                 <input type="text" name="address" placeholder="Address" required>
-                <img src="{{ url_for('static', filename='images/address-icon.png') }}" alt="Address Icon" class="icon">
+                <img src="static/images/address-icon.png" alt="Address Icon" class="icon">
             </div>
             <div class="input-group">
                 <input type="text" name="zip" placeholder="Postcode" required>
-                <img src="{{ url_for('static', filename='images/postcode-icon.png') }}" alt="Postcode Icon" class="icon">
+                <img src="static/images/postcode-icon.png" alt="Postcode Icon" class="icon">
             </div>
             <button type="submit" class="button">Sign Up</button>
         </form>
