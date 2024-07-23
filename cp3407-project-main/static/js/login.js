@@ -1,3 +1,13 @@
+// 切换密码可见性
+document.getElementById('toggle-password').addEventListener('click', function () {
+    const passwordField = document.getElementById('password-field');
+    const isPasswordVisible = passwordField.type === 'password';
+    passwordField.type = isPasswordVisible ? 'text' : 'password';
+    this.src = isPasswordVisible ? 'static/images/no-eye-icon.png' : 'static/images/eye-icon.png';
+});
+
+
+// 表单提交事件处理
 document.getElementById('login-form').addEventListener('submit', function (e) {
     e.preventDefault();
     const email = document.getElementById('email').value;
@@ -9,43 +19,25 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
         return;
     }
 
-    // 模拟验证密码
-    if (password !== 'correct-password') { // 替换为实际的密码验证逻辑
+    // 模拟密码验证，替换为服务器端验证
+    if (password !== 'correct-password') {
         errorMessage.textContent = 'Incorrect Password';
-        document.getElementById('password-field').value = ''; // 清空密码输入框
+        document.getElementById('password-field').value = '';
     } else {
-        window.location.href = 'index.html'; // 如果验证成功，跳转到主页
+        window.location.href = 'index.html';
     }
 });
 
-document.getElementById('toggle-password').addEventListener('click', function () {
-    const passwordField = document.getElementById('password-field');
-    const eyeIcon = document.getElementById('toggle-password');
-    if (passwordField.type === 'password') {
-        passwordField.type = 'text';
-        eyeIcon.src = 'images/no-eye-icon.png'; // 确保你有这个图标
-    } else {
-        passwordField.type = 'password';
-        eyeIcon.src = 'images/eye-icon.png';
-    }
-});
-
-// 模态框相关逻辑
+// 模态框逻辑
 const modal = document.getElementById('signupModal');
-const btn = document.getElementById('sign-up');
-const span = document.getElementsByClassName('close')[0];
-
-btn.onclick = function () {
+document.getElementById('sign-up').addEventListener('click', () => {
     modal.style.display = 'block';
-    modal.classList.add('slide-down'); // 添加滑动效果的类
-}
-
-span.onclick = function () {
+});
+document.getElementsByClassName('close')[0].addEventListener('click', () => {
     modal.style.display = 'none';
-}
-
-window.onclick = function (event) {
-    if (event.target == modal) {
+});
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
         modal.style.display = 'none';
     }
-}
+});
