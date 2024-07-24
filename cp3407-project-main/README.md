@@ -48,7 +48,7 @@ Total: YY days
 Total: YY days
 
 # Actual iterations
-1. [Iteration-1](./iteration_1.md)
-2. [Iteration-2](./iteration_2.md)
+1. [Iteration-1](iterations/iteration_1.md)
+2. [Iteration-2](iterations/iteration_2.md)
 
 

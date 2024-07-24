@@ -2,7 +2,7 @@ import mysql.connector
 from flask import Flask, request, render_template_string, redirect, url_for, session
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # 用于会话管理的密钥，请确保它是安全的
+app.secret_key = 'sjh123'  # 用于会话管理的密钥，请确保它是安全的
 
 # Define database link information
 db_config = {
