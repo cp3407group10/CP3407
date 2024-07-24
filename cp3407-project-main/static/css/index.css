@@ -6,7 +6,8 @@ body, html {
 }
 
 header {
-    background: #fff;
+    background: url('../images/login_background.jpg') no-repeat center center; /* Background image for the header */
+    background-size: cover; /* Cover the entire header area */
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -30,18 +31,17 @@ nav {
 
 .nav-links li a {
     text-decoration: none;
-    color: #000;
+    color: #fff; /* Ensure white color for visibility */
     font-weight: bold;
     font-size: 18px; /* Adjusted font size */
 }
 
 .search-bar input {
-    padding: 5px 10px;  /* Adjusted padding for better spacing */
+    padding: 10px 20px;  /* Adjusted padding for better spacing */
     border: 1px solid #ddd;
     border-radius: 20px;
-    width: 400px;  /* Increased width from a default or smaller size */
+    width: 500px;  /* Increased width from a default or smaller size */
 }
-
 
 .logo img {
     width: 120px;
@@ -57,16 +57,19 @@ nav {
 
 .hero-content {
     max-width: 50%;
+    color: #000; /* Ensuring black text for visibility */
 }
 
 .hero-content h2 {
     font-size: 42px; /* Adjusted for larger view */
     margin-bottom: 20px;
+    color: #000; /* Black color for headings */
 }
 
 .hero-content p {
     font-size: 20px; /* Slightly larger for better readability */
     line-height: 1.6;
+    color: #000; /* Black color for paragraph */
 }
 
 .hero-image img {
@@ -81,6 +84,7 @@ nav {
 .whats-new h2 {
     font-size: 28px;
     margin-bottom: 20px;
+    color: #000; /* Black color for new section headings */
 }
 
 .new-courses {
@@ -103,16 +107,18 @@ nav {
 
 .course-info {
     padding: 20px;
+    color: #000; /* Ensuring text inside courses is visible */
 }
 
 .course-info h3 {
     font-size: 24px; /* Larger font size for course titles */
     margin-bottom: 10px;
+    color: #000; /* Black for better visibility */
 }
 
 .course-info p {
     font-size: 16px; /* Adjusted font size */
-    color: #555;
+    color: #555; /* Dark grey for text */
 }
 
 .refresh-button {
@@ -123,6 +129,7 @@ nav {
     background: #ddd;
     border-radius: 20px;
     cursor: pointer;
+    color: #000; /* Text color for the button */
 }
 
 .modal {
