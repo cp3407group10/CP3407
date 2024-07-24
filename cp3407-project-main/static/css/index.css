@@ -1,3 +1,4 @@
+/* Resets */
 body, html {
     margin: 0;
     padding: 0;
@@ -19,23 +20,28 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
+    padding: 0;
 }
 
 .nav-links li {
-    margin-right: 20px;
+    margin-right: 40px;
+    padding: 10px; /* Added padding for better clickability */
 }
 
 .nav-links li a {
     text-decoration: none;
     color: #000;
     font-weight: bold;
+    font-size: 18px; /* Adjusted font size */
 }
 
 .search-bar input {
-    padding: 5px;
+    padding: 5px 10px;  /* Adjusted padding for better spacing */
     border: 1px solid #ddd;
     border-radius: 20px;
+    width: 400px;  /* Increased width from a default or smaller size */
 }
+
 
 .logo img {
     width: 120px;
@@ -54,12 +60,12 @@ nav {
 }
 
 .hero-content h2 {
-    font-size: 36px;
+    font-size: 42px; /* Adjusted for larger view */
     margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 18px;
+    font-size: 20px; /* Slightly larger for better readability */
     line-height: 1.6;
 }
 
@@ -100,12 +106,12 @@ nav {
 }
 
 .course-info h3 {
-    font-size: 20px;
+    font-size: 24px; /* Larger font size for course titles */
     margin-bottom: 10px;
 }
 
 .course-info p {
-    font-size: 16px;
+    font-size: 16px; /* Adjusted font size */
     color: #555;
 }
 
@@ -167,7 +173,12 @@ form label {
     font-weight: bold;
 }
 
-form input {
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="password"],
+form input[type="password"],
+form input[type="text"] {
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ddd;
@@ -186,41 +197,4 @@ form button {
 
 form button:hover {
     background-color: #e67300;
-}
-
-/* 在你的CSS文件中添加以下内容 */
-
-@keyframes slideInDown {
-    from {
-        transform: translateY(-100%); /* 开始时模态框在视窗之外 */
-        opacity: 0; /* 开始时透明度为0 */
-    }
-    to {
-        transform: translateY(0); /* 结束时模态框位于正常位置 */
-        opacity: 1; /* 结束时透明度为正常 */
-    }
-}
-
-.modal {
-    display: none; /* 初始状态仍为不显示 */
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4); /* 背景颜色略透明 */
-    padding-top: 60px;
-    animation: slideInDown 0.5s ease-out; /* 应用动画 */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
 }
