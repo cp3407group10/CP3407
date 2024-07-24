@@ -9,12 +9,12 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
         return;
     }
 
-    // 模拟验证密码
-    if (password !== 'correct-password') { // 替换为实际的密码验证逻辑
+    // Simulate password validation
+    if (password !== 'correct-password') { // Replace with actual password validation logic
         errorMessage.textContent = 'Incorrect Password';
-        document.getElementById('password-field').value = ''; // 清空密码输入框
+        document.getElementById('password-field').value = ''; // Clear the password field
     } else {
-        window.location.href = 'index.html'; // 如果验证成功，跳转到主页
+        window.location.href = 'index.html'; // Redirect to homepage on success
     }
 });
 
@@ -23,21 +23,21 @@ document.getElementById('toggle-password').addEventListener('click', function ()
     const eyeIcon = document.getElementById('toggle-password');
     if (passwordField.type === 'password') {
         passwordField.type = 'text';
-        eyeIcon.src = 'images/no-eye-icon.png'; // 确保你有这个图标
+        eyeIcon.src = 'static/images/no-eye-icon.png'; // Ensure you have this icon
     } else {
         passwordField.type = 'password';
-        eyeIcon.src = 'images/eye-icon.png';
+        eyeIcon.src = 'static/images/eye-icon.png';
     }
 });
 
-// 模态框相关逻辑
+// Modal logic
 const modal = document.getElementById('signupModal');
 const btn = document.getElementById('sign-up');
 const span = document.getElementsByClassName('close')[0];
 
 btn.onclick = function () {
     modal.style.display = 'block';
-    modal.classList.add('slide-down'); // 添加滑动效果的类
+    modal.classList.add('slide-down'); // Add sliding effect class
 }
 
 span.onclick = function () {
