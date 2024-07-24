@@ -4,13 +4,15 @@ Checklist:
 1. github entry timestamps
 2. User stories are correct: see p39
 
-* Assumed Velocity: ?? 
-* Number of developers: ??
-* Total estimated amount of work: YY days
+* Assumed Velocity: 20 hours
+* Number of developers: 2
+* Total estimated amount of work: 8 days
 
 User stories or tasks (see chapter 4):
-1. [user story or task title](../user_stories/user_story_01_title.md), priority XX, YY days 
-2. ...
+1. [sign up](../user_stories/sign_up.md), priority 10, 3 days 
+2. [information fill](../user_stories/information_fill.md), priority 10, 1 days
+3. [login](../user_stories/login.md), priority 10, 2 days
+4. [data record](../user_stories/datarecord.md), priority 10, 2days
 
 In progress:
 * Task-2 (developer name or initials), date started
