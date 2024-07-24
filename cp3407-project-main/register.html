@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Account</title>
+    <title>User Registration</title>
     <link rel="stylesheet" href="static/css/register.css">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <h2>Create Your Account</h2>
+        <h2>User Registration</h2>
     </div>
     <form action="/register" method="POST" onsubmit="return validateForm()">
         <div class="form-control">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" required>
         </div>
         <div class="form-control">
             <label for="email">Email</label>
@@ -26,21 +32,35 @@
             <input type="tel" id="phone" name="phone">
         </div>
         <div class="form-control">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-control">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
         </div>
         <div class="form-control">
             <label for="confirm_password">Confirm Password</label>
             <input type="password" id="confirm_password" name="confirm_password" required>
+            <div id="password_error" class="error-message"></div>
         </div>
         <div class="form-control">
             <label for="address">Address</label>
-            <textarea id="address" name="address" rows="3"></textarea>
+            <textarea id="address" name="address" rows="4"></textarea>
+        </div>
+        <div class="form-control">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city">
+        </div>
+        <div class="form-control">
+            <label for="zip">Zip Code</label>
+            <input type="text" id="zip" name="zip">
         </div>
         <button type="submit" class="btn">Register</button>
     </form>
 </div>
 
-<script src="static/js/validateForm.js"></script>
+<script src="static/validateForm.js"></script>
+
 </body>
 </html>
