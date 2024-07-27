@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.user-info img.user-photo {
+    border-radius: 50%;
+    width: 100px;
+}
+
+.courses-section, .created-courses {
+    padding: 20px;
+}
+
+.courses-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.course {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 45%;
+    margin: 10px;
+}
+
+.add-course button {
+    font-size: 36px;
+    background-color: transparent;
+    border: 2px dashed #ccc;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
