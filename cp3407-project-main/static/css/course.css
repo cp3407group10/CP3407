@@ -1,3 +1,4 @@
+/* Resets */
 * {
     margin: 0;
     padding: 0;
@@ -9,12 +10,15 @@ body, html {
     height: 100vh;
     margin: 0;
     padding: 0;
+    color: #000;  /* Ensuring black text for visibility */
 }
 
 header {
-    background-color: #fff;
+    background: url('../images/login_background.jpg') no-repeat center center; /* Background image for the header */
+    background-size: cover; /* Cover the entire header area */
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff; /* White color text for visibility against the dark background */
 }
 
 nav {
@@ -26,26 +30,31 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
+    padding: 0;
 }
 
 .nav-links li {
-    margin-right: 20px;
+    margin-right: 40px; /* Space between menu items */
+    padding: 10px; /* Padding for better clickability */
 }
 
 .nav-links li a {
     text-decoration: none;
-    color: #000;
+    color: #fff; /* White color for links for visibility */
     font-weight: bold;
+    font-size: 18px; /* Increased font size for better visibility */
 }
 
 .search-bar input {
-    padding: 5px;
+    padding: 10px 20px;  /* Increased padding for aesthetic spacing */
     border: 1px solid #ddd;
     border-radius: 20px;
+    width: 500px;  /* Increased width for a larger search box */
+    color: #000; /* Ensuring text is visible */
 }
 
 .logo img {
-    width: 80px;
+    width: 80px; /* Size of the logo adjusted for consistency */
     height: auto;
 }
 
@@ -67,14 +76,16 @@ nav {
 .courses-container {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap; /* Allows for wrapping in smaller screens */
 }
 
 .course {
     background-color: #ffffff;
     border: 1px solid #ccc;
     padding: 10px;
-    width: 45%;
+    width: 45%; /* Adjust width to better utilize space */
     margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .add-course button {
@@ -97,4 +108,9 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+/* Ensure text inside the header is visible on top of the background image */
+header nav a, header nav a:visited {
+    color: #fff;
 }
