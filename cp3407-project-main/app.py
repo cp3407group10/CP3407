@@ -25,11 +25,31 @@ def about():
         html_content = f.read()
     return render_template_string(html_content)
 
-@app.route("/course")
+@app.route('/course')
 def course():
-    with open("course.html", encoding='utf-8') as f:
-        html_content = f.read()
-    return render_template_string(html_content)
+    try:
+
+        db_connection = mysql.connector.connect(**db_config)
+        cursor = db_connection.cursor(dictionary=True)
+
+
+        cursor.execute("SELECT course_name, course_content FROM courses")
+        courses = cursor.fetchall()
+
+
+        cursor.close()
+        db_connection.close()
+
+
+        with open("course.html", encoding='utf-8') as f:
+            html_content = f.read()
+
+
+        return render_template_string(html_content, courses=courses)
+
+    except mysql.connector.Error as err:
+        return f"Error: {err}"
+
 
 @app.route('/contact')
 def contact():

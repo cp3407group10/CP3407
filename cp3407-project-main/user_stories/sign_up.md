@@ -24,4 +24,5 @@ Description-v2:The information in the sign-up form is saved
 # UI Design:!
 
 # Completed:
-version1 ![img.png](img.png)
+# version1 ![img.png](img.png)
+# version2 ![img_9.png](img_9.png)

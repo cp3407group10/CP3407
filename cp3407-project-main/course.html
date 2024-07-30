@@ -3,66 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudySync - Home</title>
-    <link rel="stylesheet" href="static/css/course.css">
+    <title>StudySync - Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course.css') }}">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Sign up</a></li>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/course">Courses</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-            <div class="search-bar">
-                <input type="text" placeholder="Search">
-            </div>
-            <div class="logo">
-                <img src="static/images/logo.png" alt="StudySync Logo" style="width: 80px; height: auto;">
-            </div>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Sign up</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/course">Courses</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="StudySync Logo" style="width: 80px; height: auto;">
+        </div>
+    </nav>
+</header>
 
-    <main>
-
-        <section class="courses-section">
-            <h2>My Courses</h2>
-            <div class="courses-container">
-                <div class="course">
-                    <h3>Chemistry</h3>
-                    <p>8:00 - 10:00</p>
-                    <p>Instructor: Mr. Chan</p>
-                    <p>Course Progress: 30%</p>
-                    <button>Join Session</button>
-                </div>
-                <div class="course">
-                    <h3>Chinese</h3>
-                    <p>13:00 - 14:30</p>
-                    <p>Instructor: Ms. Liu</p>
-                    <p>Course Progress: 15%</p>
-                    <button>Join Session</button>
-                </div>
+<main>
+    <section class="courses-section">
+        <h2>Available Courses</h2>
+        <div class="courses-container">
+            {% for course in courses %}
+            <div class="course">
+                <h3>{{ course.course_name }}</h3>
+                <p>{{ course.course_content }}</p>
+                <button>Join Session</button>
             </div>
-        </section>
+            {% endfor %}
+        </div>
+    </section>
 
-        <section class="created-courses">
-            <h2>Courses I Made</h2>
-            <div class="courses-container">
-                <div class="course">
-                    <h3>History</h3>
-                    <p>10:00 - 11:00</p>
-                    <p>Today's Homework: Not yet released</p>
-                    <button>Edit</button>
-                </div>
-                <div class="add-course">
-                    <button>+</button>
-                </div>
+    <section class="created-courses">
+        <h2>Courses I Made</h2>
+        <div class="courses-container">
+            <div class="course">
+                <h3>History</h3>
+                <p>10:00 - 11:00</p>
+                <p>Today's Homework: Not yet released</p>
+                <button>Edit</button>
             </div>
-        </section>
-    </main>
+            <div class="add-course">
+                <button>+</button>
+            </div>
+        </div>
+    </section>
+</main>
 </body>
 </html>
