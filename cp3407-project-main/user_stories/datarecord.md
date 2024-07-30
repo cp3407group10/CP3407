@@ -11,6 +11,7 @@ The database created during this process will continue to be used later
 
 ## Description: This step saves the information entered by the user to the database
 Description-v1:In iteration1 database only the data entered in register is saved as database
+Description-v2:In iteration2 database include courses information
 
  
 
@@ -27,4 +28,9 @@ Description-v1:In iteration1 database only the data entered in register is saved
 * Insert a mockup design screenshot using any prototyping tools, e.g. [https://ninjamock.com/](https://ninjamock.com/)
 
 # Completed:
-iteration1:![img_7.png](img_7.png) only 1 tables
+# iteration1:
+![img_7.png](img_7.png) 
+# only 1 tables
+# iteration2: ![img_12.png](img_12.png) 
+![img_13.png](img_13.png) 
+# save courses information
