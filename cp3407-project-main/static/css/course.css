@@ -1,0 +1,116 @@
+/* Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #000;  /* Ensuring black text for visibility */
+}
+
+header {
+    background: url('../images/login_background.jpg') no-repeat center center; /* Background image for the header */
+    background-size: cover; /* Cover the entire header area */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff; /* White color text for visibility against the dark background */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-right: 40px; /* Space between menu items */
+    padding: 10px; /* Padding for better clickability */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff; /* White color for links for visibility */
+    font-weight: bold;
+    font-size: 18px; /* Increased font size for better visibility */
+}
+
+.search-bar input {
+    padding: 10px 20px;  /* Increased padding for aesthetic spacing */
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 500px;  /* Increased width for a larger search box */
+    color: #000; /* Ensuring text is visible */
+}
+
+.logo img {
+    width: 80px; /* Size of the logo adjusted for consistency */
+    height: auto;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.user-info img.user-photo {
+    border-radius: 50%;
+    width: 100px;
+}
+
+.courses-section, .created-courses {
+    padding: 20px;
+}
+
+.courses-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allows for wrapping in smaller screens */
+}
+
+.course {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 45%; /* Adjust width to better utilize space */
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.add-course button {
+    font-size: 36px;
+    background-color: transparent;
+    border: 2px dashed #ccc;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Ensure text inside the header is visible on top of the background image */
+header nav a, header nav a:visited {
+    color: #fff;
+}

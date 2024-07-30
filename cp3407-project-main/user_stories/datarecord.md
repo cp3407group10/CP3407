@@ -1,8 +1,6 @@
 # User story title: data record 
 ## Priority: 10 (latest for iteration-1)
 The priority in iteration1 is 10
-# Priority: 10 (latest for iteration-1)
-The priority in iteration2 is 10
 
 ## Estimation: 2 days
 * Jiahao Song: 2 day (estimated before iteration-1)

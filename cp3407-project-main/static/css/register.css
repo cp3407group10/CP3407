@@ -89,8 +89,7 @@ textarea {
 }
 
 .btn.full-width {
-    width: 60%; /* Adjust this percentage according to your preference */
-    margin: 0 auto; /* Center the button horizontally */
+    width: 100%; /* Adjust this percentage according to your preference */
     background-color: #ff8000;
     color: white;
     border: none;
@@ -102,4 +101,15 @@ textarea {
 
 .btn:hover {
     background-color: #e67300;
+}
+
+.extra-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.extra-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 18px; /* Adjust the font size as needed */
 }
