@@ -2,7 +2,7 @@ import mysql.connector
 from flask import Flask, request, render_template_string, redirect, url_for, session
 
 app = Flask(__name__)
-app.secret_key = 'sjh123'  # 用于会话管理的密钥，请确保它是安全的
+app.secret_key = 'sjh123'
 
 # Define database link information
 db_config = {
@@ -13,11 +13,13 @@ db_config = {
     "port": 3306
 }
 
+
 @app.route('/')
 def index():
     with open('index.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
+
 
 @app.route('/about')
 def about():
@@ -25,25 +27,21 @@ def about():
         html_content = f.read()
     return render_template_string(html_content)
 
+
 @app.route('/course')
 def course():
     try:
-
         db_connection = mysql.connector.connect(**db_config)
         cursor = db_connection.cursor(dictionary=True)
-
 
         cursor.execute("SELECT course_name, course_content FROM courses")
         courses = cursor.fetchall()
 
-
         cursor.close()
         db_connection.close()
 
-
         with open("course.html", encoding='utf-8') as f:
             html_content = f.read()
-
 
         return render_template_string(html_content, courses=courses)
 
@@ -56,6 +54,7 @@ def contact():
     with open('contact.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -89,6 +88,7 @@ def login():
         html_content = f.read()
     return render_template_string(html_content)
 
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -102,9 +102,25 @@ def register():
         zip_code = request.form.get('zip', '')  # Use .get() to handle optional fields
 
         try:
-            # Connect to the database and execute the insert operation
+            # Connect to the database
             db_connection = mysql.connector.connect(**db_config)
             cursor = db_connection.cursor()
+
+            # Check if the email already exists
+            check_query = "SELECT * FROM users WHERE email=%s"
+            cursor.execute(check_query, (email,))
+            existing_user = cursor.fetchone()
+
+            # Ensure all results are read and processed
+            cursor.fetchall()
+
+            if existing_user:
+                # Email already exists
+                cursor.close()
+                db_connection.close()
+                return "This email is already registered. Please use a different email."
+
+            # Insert new user into the database
             insert_query = """
                 INSERT INTO users (fullname, email, phone, username, password, address, city, zip)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
@@ -112,6 +128,7 @@ def register():
             insert_values = (fullname, email, phone, username, password, address, city, zip_code)
             cursor.execute(insert_query, insert_values)
             db_connection.commit()
+
             cursor.close()
             db_connection.close()
 
@@ -130,6 +147,7 @@ def register():
     with open('register.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
+
 
 @app.route('/logout')
 def logout():
