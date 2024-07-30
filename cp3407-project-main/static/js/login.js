@@ -31,7 +31,7 @@ document.getElementById('toggle-password').addEventListener('click', function ()
 });
 
 // Modal logic
-const modal = document.getElementById('signupModal');
+const modal = document.getElementById('signUpModal');
 const btn = document.getElementById('sign-up');
 const span = document.getElementsByClassName('close')[0];
 
