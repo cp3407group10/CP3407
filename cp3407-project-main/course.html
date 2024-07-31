@@ -26,33 +26,64 @@
 </header>
 
 <main>
+
+        <section class="created-courses">
+        <h2>Courses I Joined</h2>
+        <div class="courses-container" id="created-courses">
+            <!-- Dynamically added courses will appear here -->
+        </div>
+    </section>
     <section class="courses-section">
         <h2>Available Courses</h2>
-        <div class="courses-container">
+        <div class="courses-container" id="available-courses">
             {% for course in courses %}
-            <div class="course">
+            <div class="course" data-course-id="{{ course.course_id }}">
                 <h3>{{ course.course_name }}</h3>
                 <p>{{ course.course_content }}</p>
-                <button>Join Session</button>
+                <button onclick="joinSession(this)">Join Session</button>
             </div>
             {% endfor %}
         </div>
     </section>
 
-    <section class="created-courses">
-        <h2>Courses I Made</h2>
-        <div class="courses-container">
-            <div class="course">
-                <h3>History</h3>
-                <p>10:00 - 11:00</p>
-                <p>Today's Homework: Not yet released</p>
-                <button>Edit</button>
-            </div>
-            <div class="add-course">
-                <button>+</button>
-            </div>
-        </div>
-    </section>
+
 </main>
+
+<script>
+function joinSession(button) {
+    const course = button.closest('.course');
+    document.getElementById('created-courses').appendChild(course);
+    button.textContent = 'Leave Session';
+    button.onclick = function() { leaveSession(this); };
+
+    // Optionally, make an AJAX call to the server to persist the change
+    const courseId = course.getAttribute('data-course-id');
+    fetch('/join_course', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ course_id: courseId }),
+    });
+}
+
+function leaveSession(button) {
+    const course = button.closest('.course');
+    document.getElementById('available-courses').appendChild(course);
+    button.textContent = 'Join Session';
+    button.onclick = function() { joinSession(this); };
+
+    // Optionally, make an AJAX call to the server to persist the change
+    const courseId = course.getAttribute('data-course-id');
+    fetch('/leave_course', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ course_id: courseId }),
+    });
+}
+</script>
+
 </body>
 </html>
