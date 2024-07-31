@@ -1,5 +1,5 @@
 import mysql.connector
-from flask import Flask, request, render_template_string, redirect, url_for, session,flash
+from flask import Flask, request, render_template_string, redirect, url_for, session, flash
 
 app = Flask(__name__)
 app.secret_key = 'sjh123'
@@ -13,13 +13,11 @@ db_config = {
     "port": 3306
 }
 
-
 @app.route('/')
 def index():
     with open('index.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
-
 
 @app.route('/about')
 def about():
@@ -27,14 +25,13 @@ def about():
         html_content = f.read()
     return render_template_string(html_content)
 
-
 @app.route('/course')
 def course():
     try:
         db_connection = mysql.connector.connect(**db_config)
         cursor = db_connection.cursor(dictionary=True)
 
-        cursor.execute("SELECT course_name, course_content FROM courses")
+        cursor.execute("SELECT course_name, course_content FROM courses ORDER BY course_name")
         courses = cursor.fetchall()
 
         cursor.close()
@@ -48,13 +45,11 @@ def course():
     except mysql.connector.Error as err:
         return f"Error: {err}"
 
-
 @app.route('/contact')
 def contact():
     with open('contact.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -72,9 +67,6 @@ def login():
             cursor.close()
             db_connection.close()
 
-            # Debugging: print fetched user information
-            print(f"Fetched user: {user}")
-
             if user:
                 session['user'] = user  # Store user information in session
                 return redirect(url_for('dashboard'))
@@ -87,7 +79,6 @@ def login():
     with open('login.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
-
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -102,25 +93,19 @@ def register():
         zip_code = request.form.get('zip', '')
 
         try:
-
             db_connection = mysql.connector.connect(**db_config)
             cursor = db_connection.cursor()
-
 
             check_query = "SELECT * FROM users WHERE email=%s"
             cursor.execute(check_query, (email,))
             existing_user = cursor.fetchone()
-
-
             cursor.fetchall()
 
             if existing_user:
-                #
                 flash("This email is already registered. Please use a different email.", 'error')
                 cursor.close()
                 db_connection.close()
                 return redirect(url_for('register'))
-
 
             insert_query = """
                 INSERT INTO users (fullname, email, phone, username, password, address, city, zip)
@@ -132,7 +117,6 @@ def register():
 
             cursor.close()
             db_connection.close()
-
 
             success_html = """
                 <h1>Registration Successful</h1>
@@ -149,7 +133,6 @@ def register():
         html_content = f.read()
     return render_template_string(html_content)
 
-
 @app.route('/logout')
 def logout():
     session.pop('user', None)  # Remove user from session
@@ -164,10 +147,17 @@ def dashboard():
         return f"Welcome {user[1]}! You are logged in."
     return redirect(url_for('login'))
 
-# Redirect to the register route when accessing the root URL
-@app.route('/redirect_to_register')
-def redirect_to_register():
-    return redirect(url_for('register'))
+@app.route('/join_course', methods=['POST'])
+def join_course():
+    course_id = request.json['course_id']
+    # Add logic to handle course joining (e.g., save to user's joined courses in the database)
+    return '', 204
+
+@app.route('/leave_course', methods=['POST'])
+def leave_course():
+    course_id = request.json['course_id']
+    # Add logic to handle course leaving (e.g., remove from user's joined courses in the database)
+    return '', 204
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
