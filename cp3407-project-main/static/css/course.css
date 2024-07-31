@@ -90,6 +90,23 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     height: 180px; /* Set a fixed height */
+    position: relative; /* Relative positioning for overlay */
+}
+
+.course h3, .course p {
+    z-index: 2; /* Ensure text is above overlay */
+    color: #fff; /* Default to white text for contrast */
+}
+
+.course::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1; /* Ensure overlay is below text but above background image */
 }
 
 .course h3 {
@@ -109,17 +126,102 @@ nav {
     align-self: flex-start;
     padding: 10px;
     border: none;
-    background-color: #007bff;
-    color: white;
     cursor: pointer;
     margin-top: auto;
+    z-index: 2; /* Ensure button is above overlay */
+}
+
+button.join {
+    background-color: #007bff;
+    color: white;
+}
+
+button.leave {
+    background-color: #ff0000;
+    color: white;
 }
 
 button:hover {
-    background-color: #0056b3;
+    opacity: 0.8;
 }
 
 /* Ensure text inside the header is visible on top of the background image */
 header nav a, header nav a:visited {
     color: #fff;
+}
+
+/* Specific background styles for each course based on course name */
+.course-introduction_to_python {
+    background: url('../images/introduction_to_python_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-data_structures_and_algorithms {
+    background: url('../images/data_structures_and_algorithms_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-web_development {
+    background: url('../images/web_development_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-database_systems {
+    background: url('../images/database_systems_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-operating_systems {
+    background: url('../images/operating_systems_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-computer_networks {
+    background: url('../images/computer_networks_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-software_engineering {
+    background: url('../images/software_engineering_bg.png') no-repeat center center;
+    background-size: cover;
+}
+
+.course-artificial_intelligence {
+    background: url('../images/artificial_intelligence_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-cybersecurity {
+    background: url('../images/cybersecurity_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-cloud_computing {
+    background: url('../images/cloud_computing_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-mobile_app_development {
+    background: url('../images/mobile_app_development_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-data_science {
+    background: url('../images/data_science_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-game_development {
+    background: url('../images/game_development_bg.png') no-repeat center center;
+    background-size: cover;
+}
+
+.course-machine_learning {
+    background: url('../images/machine_learning_bg.png') no-repeat center center;
+    background-size: cover;
+}
+
+.course-blockchain_technology {
+    background: url('../images/blockchain_technology_bg.jpg') no-repeat center center;
+    background-size: cover;
 }
