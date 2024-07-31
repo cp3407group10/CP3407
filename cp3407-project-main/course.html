@@ -29,7 +29,10 @@
     <section class="created-courses">
         <h2>Courses I Joined</h2>
         <div class="courses-container" id="created-courses">
-            <!-- Dynamically added courses will appear here -->
+            <!-- Placeholder for empty state message -->
+            <div id="no-courses-message" class="no-courses-message">
+                You haven't added any courses yet, join us!
+            </div>
         </div>
     </section>
     <section class="courses-section">
@@ -47,6 +50,10 @@
 </main>
 
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+    checkEmptyCourses();
+});
+
 function joinSession(button) {
     const course = button.closest('.course');
     document.getElementById('created-courses').appendChild(course);
@@ -64,6 +71,8 @@ function joinSession(button) {
         },
         body: JSON.stringify({ course_id: courseId }),
     });
+
+    checkEmptyCourses();
 }
 
 function leaveSession(button) {
@@ -83,6 +92,18 @@ function leaveSession(button) {
         },
         body: JSON.stringify({ course_id: courseId }),
     });
+
+    checkEmptyCourses();
+}
+
+function checkEmptyCourses() {
+    const joinedCourses = document.getElementById('created-courses').querySelectorAll('.course');
+    const noCoursesMessage = document.getElementById('no-courses-message');
+    if (joinedCourses.length === 0) {
+        noCoursesMessage.style.display = 'block';
+    } else {
+        noCoursesMessage.style.display = 'none';
+    }
 }
 </script>
 

@@ -225,3 +225,14 @@ header nav a, header nav a:visited {
     background: url('../images/blockchain_technology_bg.jpg') no-repeat center center;
     background-size: cover;
 }
+
+.no-courses-message {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
