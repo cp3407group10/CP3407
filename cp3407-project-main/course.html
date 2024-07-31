@@ -26,8 +26,7 @@
 </header>
 
 <main>
-
-        <section class="created-courses">
+    <section class="created-courses">
         <h2>Courses I Joined</h2>
         <div class="courses-container" id="created-courses">
             <!-- Dynamically added courses will appear here -->
@@ -40,13 +39,13 @@
             <div class="course" data-course-id="{{ course.course_id }}">
                 <h3>{{ course.course_name }}</h3>
                 <p>{{ course.course_content }}</p>
-                <button onclick="joinSession(this)">Join Session</button>
+                <div class="course-action">
+                    <button onclick="joinSession(this)">Join Session</button>
+                </div>
             </div>
             {% endfor %}
         </div>
     </section>
-
-
 </main>
 
 <script>
@@ -84,6 +83,5 @@ function leaveSession(button) {
     });
 }
 </script>
-
 </body>
 </html>
