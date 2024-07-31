@@ -38,6 +38,10 @@
     <section class="courses-section">
         <h2>Available Courses</h2>
         <div class="courses-container" id="available-courses">
+            <!-- Placeholder for no available courses message -->
+            <div id="no-available-courses-message" class="no-courses-message">
+                There are no more classes, so stay tuned!
+            </div>
             {% for course in courses %}
             <div class="course course-{{ course.course_name | replace(' ', '_') | lower }}" data-course-id="{{ course.course_id }}">
                 <h3>{{ course.course_name }}</h3>
@@ -52,6 +56,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     checkEmptyCourses();
+    checkAvailableCourses();
 });
 
 function joinSession(button) {
@@ -73,6 +78,7 @@ function joinSession(button) {
     });
 
     checkEmptyCourses();
+    checkAvailableCourses();
 }
 
 function leaveSession(button) {
@@ -94,6 +100,7 @@ function leaveSession(button) {
     });
 
     checkEmptyCourses();
+    checkAvailableCourses();
 }
 
 function checkEmptyCourses() {
@@ -103,6 +110,16 @@ function checkEmptyCourses() {
         noCoursesMessage.style.display = 'block';
     } else {
         noCoursesMessage.style.display = 'none';
+    }
+}
+
+function checkAvailableCourses() {
+    const availableCourses = document.getElementById('available-courses').querySelectorAll('.course');
+    const noAvailableCoursesMessage = document.getElementById('no-available-courses-message');
+    if (availableCourses.length === 0) {
+        noAvailableCoursesMessage.style.display = 'block';
+    } else {
+        noAvailableCoursesMessage.style.display = 'none';
     }
 }
 </script>
