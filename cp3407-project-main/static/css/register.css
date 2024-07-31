@@ -125,3 +125,19 @@ textarea {
     text-decoration: none;
     font-size: 15px; /* Adjust the font size for "Login later" */
 }
+
+.flash-messages {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.flash-messages .error {
+    color: red;
+}
+
+.flash-messages .success {
+    color: green;
+}
