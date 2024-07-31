@@ -1,5 +1,5 @@
 import mysql.connector
-from flask import Flask, request, render_template_string, redirect, url_for, session
+from flask import Flask, request, render_template_string, redirect, url_for, session,flash
 
 app = Flask(__name__)
 app.secret_key = 'sjh123'
@@ -94,33 +94,34 @@ def register():
     if request.method == 'POST':
         fullname = request.form['fullname']
         email = request.form['email']
-        phone = request.form.get('phone', '')  # Use .get() to handle optional fields
+        phone = request.form.get('phone', '')
         username = request.form['username']
         password = request.form['password']
         address = request.form['address']
-        city = request.form.get('city', '')  # Use .get() to handle optional fields
-        zip_code = request.form.get('zip', '')  # Use .get() to handle optional fields
+        city = request.form.get('city', '')
+        zip_code = request.form.get('zip', '')
 
         try:
-            # Connect to the database
+
             db_connection = mysql.connector.connect(**db_config)
             cursor = db_connection.cursor()
 
-            # Check if the email already exists
+
             check_query = "SELECT * FROM users WHERE email=%s"
             cursor.execute(check_query, (email,))
             existing_user = cursor.fetchone()
 
-            # Ensure all results are read and processed
+
             cursor.fetchall()
 
             if existing_user:
-                # Email already exists
+                #
+                flash("This email is already registered. Please use a different email.", 'error')
                 cursor.close()
                 db_connection.close()
-                return "This email is already registered. Please use a different email."
+                return redirect(url_for('register'))
 
-            # Insert new user into the database
+
             insert_query = """
                 INSERT INTO users (fullname, email, phone, username, password, address, city, zip)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
@@ -132,7 +133,7 @@ def register():
             cursor.close()
             db_connection.close()
 
-            # Generate the registration success page with a login button
+
             success_html = """
                 <h1>Registration Successful</h1>
                 <p>Thank you for registering, {fullname}!</p>
