@@ -75,8 +75,8 @@ nav {
 
 .courses-container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap; /* Allows for wrapping in smaller screens */
+    justify-content: flex-start; /* Ensure items start from the left */
 }
 
 .course {
@@ -227,23 +227,14 @@ header nav a, header nav a:visited {
 }
 
 .no-courses-message {
-    font-size: 18px;
-    color: #333;
-    text-align: center;
-    margin: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
     padding: 20px;
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    width: 45%;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 16px;
+    color: #333;
 }
 
-.no-courses-message {
-    font-size: 18px;
-    color: #333;
-    text-align: center;
-    margin: 20px;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
