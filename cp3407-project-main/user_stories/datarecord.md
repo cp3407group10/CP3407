@@ -1,9 +1,11 @@
-# User story title: data record 
+# User story title: database
+
 ## Priority: 10 (latest for iteration-1)
-The priority in iteration1 is 10
+## Priority: 10 (latest for iteration-2)
 
 ## Estimation: 2 days
 * Jiahao Song: 2 day (estimated before iteration-1)
+* Jiahao Song: 3 day (estimated before iteration-2)
 
 
 ## Assumptions (if any):
@@ -28,9 +30,11 @@ Description-v2:In iteration2 database include courses information
 * Insert a mockup design screenshot using any prototyping tools, e.g. [https://ninjamock.com/](https://ninjamock.com/)
 
 # Completed:
-# iteration1:
-![img_7.png](images/img_7.png) 
-# only 1 tables
+# iteration1:only 1 tables
+![img_7.png](images/img_7.png)
+
 # iteration2: ![img_12.png](images/img_12.png) 
 ![img_13.png](images/img_13.png) 
+# Data tables for users and courses are created
+![img.png](img.png)
 # save courses information
