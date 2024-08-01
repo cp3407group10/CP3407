@@ -1,52 +1,25 @@
-document.addEventListener('DOMContentLoaded', function () {
-    checkEmptyCourses();
-    checkAvailableCourses();
+document.addEventListener('DOMContentLoaded', function() {
+    // Check login status when the page loads
+    checkLoginStatus();
 });
 
-function joinSession(button) {
-    const course = button.closest('.course');
-    const createdCoursesContainer = document.getElementById('created-courses');
-    createdCoursesContainer.insertBefore(course, createdCoursesContainer.firstChild);
-    button.textContent = 'Leave Session';
-    button.classList.remove('join');
-    button.classList.add('leave');
-    button.onclick = function() { leaveSession(this); };
-
-    // Optionally, make an AJAX call to the server to persist the change
-    const courseId = course.getAttribute('data-course-id');
-    fetch('/join_course', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ course_id: courseId }),
-    });
-
-    checkEmptyCourses();
-    checkAvailableCourses();
-}
-
-function leaveSession(button) {
-    const course = button.closest('.course');
-    const availableCoursesContainer = document.getElementById('available-courses');
-    availableCoursesContainer.insertBefore(course, availableCoursesContainer.firstChild);
-    button.textContent = 'Join Session';
-    button.classList.remove('leave');
-    button.classList.add('join');
-    button.onclick = function() { joinSession(this); };
-
-    // Optionally, make an AJAX call to the server to persist the change
-    const courseId = course.getAttribute('data-course-id');
-    fetch('/leave_course', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ course_id: courseId }),
-    });
-
-    checkEmptyCourses();
-    checkAvailableCourses();
+function checkLoginStatus() {
+    fetch('/check_login_status')
+        .then(response => response.json())
+        .then(data => {
+            if (!data.logged_in) {
+                // If not logged in, redirect to login page
+                alert('Please log in to access this page.');
+                window.location.href = '/login';
+            } else {
+                // Perform other checks
+                checkEmptyCourses();
+                checkAvailableCourses();
+            }
+        })
+        .catch(error => {
+            console.error('Error checking login status:', error);
+        });
 }
 
 function checkEmptyCourses() {
@@ -67,4 +40,82 @@ function checkAvailableCourses() {
     } else {
         noAvailableCoursesMessage.style.display = 'none';
     }
+}
+
+function joinSession(button) {
+    const courseName = button.parentElement.getAttribute('data-course-name');
+
+    fetch('/join_course', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            'course_name': courseName
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Successfully joined the course!');
+                // Create a new course element for the joined courses section
+                const joinedCoursesContainer = document.getElementById('created-courses');
+                const courseDiv = document.createElement('div');
+                courseDiv.className = 'course course-' + courseName.replace(' ', '_').toLowerCase();
+                courseDiv.setAttribute('data-course-name', courseName);
+                courseDiv.innerHTML = `
+                    <h3>${courseName}</h3>
+                    <p>${data.course_content}</p>
+                    <button class="leave" onclick="leaveSession(this)">Leave Session</button>
+                `;
+                joinedCoursesContainer.appendChild(courseDiv);
+
+                // Hide the "no courses" message if needed
+                document.getElementById('no-courses-message').style.display = 'none';
+
+                // Remove the course from available courses
+                button.parentElement.remove();
+
+                // Show the "no available courses" message if needed
+                checkAvailableCourses();
+            } else {
+                alert('Failed to join the course. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error joining course:', error);
+            alert('An error occurred. Please try again.');
+        });
+}
+
+function leaveSession(button) {
+    const courseName = button.parentElement.getAttribute('data-course-name');
+
+    fetch('/leave_course', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            'course_name': courseName
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Successfully left the course!');
+                // Remove the course element from the DOM
+                const courseElement = button.parentElement;
+                courseElement.remove();
+
+                // Show the "no courses" message if there are no remaining courses
+                checkEmptyCourses();
+            } else {
+                alert('Failed to leave the course. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error leaving course:', error);
+            alert('An error occurred. Please try again.');
+        });
 }

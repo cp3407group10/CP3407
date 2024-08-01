@@ -16,7 +16,7 @@ The priority in iteration2 is 20
 
 ## Estimation: e.g. 2 days
 Any notes on estimation go here. Keep your planning poker game numbers. For example
-* JiahaoSong: 2 days 
+* JiahaoSong: 4 days 
 * JialeTan: 3 days
 
 ## Assumptions (if any): After the student selects the course, the selected subject will be saved in the user's data table
@@ -46,5 +46,7 @@ Description-v2:In iteration2 database include courses information
 * ![img_11.png](images/img_11.png)
 ## version-3
 *![img_16.png](images/img_16.png)
-
+## version-4
+You can access the course interface only after logging in successfully. If you do not log in, click the course interface to jump to the login interface
+* ![img.png](images/course.png)
 
