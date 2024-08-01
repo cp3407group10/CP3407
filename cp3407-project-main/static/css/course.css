@@ -75,8 +75,8 @@ nav {
 
 .courses-container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap; /* Allows for wrapping in smaller screens */
+    justify-content: flex-start; /* Ensure items start from the left */
 }
 
 .course {
@@ -225,3 +225,16 @@ header nav a, header nav a:visited {
     background: url('../images/blockchain_technology_bg.jpg') no-repeat center center;
     background-size: cover;
 }
+
+.no-courses-message {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 45%;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+

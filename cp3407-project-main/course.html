@@ -28,13 +28,17 @@
 <main>
     <section class="created-courses">
         <h2>Courses I Joined</h2>
+        <div style="height: 20px;"></div>
         <div class="courses-container" id="created-courses">
+            <div id="no-courses-message" class="no-courses-message">You haven't added any courses yet, join us!</div>
             <!-- Dynamically added courses will appear here -->
         </div>
     </section>
     <section class="courses-section">
         <h2>Available Courses</h2>
+        <div style="height: 20px;"></div>
         <div class="courses-container" id="available-courses">
+            <div id="no-available-courses-message" class="no-courses-message">There are no more classes, so stay tuned!</div>
             {% for course in courses %}
             <div class="course course-{{ course.course_name | replace(' ', '_') | lower }}" data-course-id="{{ course.course_id }}">
                 <h3>{{ course.course_name }}</h3>
@@ -46,45 +50,6 @@
     </section>
 </main>
 
-<script>
-function joinSession(button) {
-    const course = button.closest('.course');
-    document.getElementById('created-courses').appendChild(course);
-    button.textContent = 'Leave Session';
-    button.classList.remove('join');
-    button.classList.add('leave');
-    button.onclick = function() { leaveSession(this); };
-
-    // Optionally, make an AJAX call to the server to persist the change
-    const courseId = course.getAttribute('data-course-id');
-    fetch('/join_course', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ course_id: courseId }),
-    });
-}
-
-function leaveSession(button) {
-    const course = button.closest('.course');
-    document.getElementById('available-courses').appendChild(course);
-    button.textContent = 'Join Session';
-    button.classList.remove('leave');
-    button.classList.add('join');
-    button.onclick = function() { joinSession(this); };
-
-    // Optionally, make an AJAX call to the server to persist the change
-    const courseId = course.getAttribute('data-course-id');
-    fetch('/leave_course', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ course_id: courseId }),
-    });
-}
-</script>
-
+<script src="{{ url_for('static', filename='js/course.js') }}"></script>
 </body>
 </html>
