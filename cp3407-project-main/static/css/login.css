@@ -167,3 +167,28 @@ form {
     width: 200px; /* 调整按钮宽度 */
     margin: 0 auto;
 }
+/* login.css */
+
+.flash-messages {
+    margin-bottom: 20px;
+}
+
+.flash {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.flash.error {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text color */
+    border: 1px solid #f5c6cb; /* Red border */
+}
+
+.flash.success {
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text color */
+    border: 1px solid #c3e6cb; /* Green border */
+}
+
+/* Add more styles if needed */

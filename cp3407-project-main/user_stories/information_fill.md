@@ -26,6 +26,6 @@ Later logins will include a verification step to ensure the account exists in th
 
 # Completed:
 # this is fill information screenshot
-![img_3.png](img_3.png)
+![img_3.png](images/img_3.png)
 # this is show this fill information have already saved in database.
-![img_5.png](img_5.png) 
+![img_5.png](images/img_5.png) 

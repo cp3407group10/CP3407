@@ -24,9 +24,9 @@ Description-v2:The information in the sign-up form is saved
 # UI Design:!
 
 # Completed:
-# version1 ![img.png](img.png)
-# version2 ![img_9.png](img_9.png)
-# version3 ![img_14.png](img_14.png) Prompt for duplicate registration of an already registered email,
-# ![img_15.png](img_15.png)When registering, enter two different passwords to prompt
+# version1 ![img.png](images/img.png)
+# version2 ![img_9.png](images/img_9.png)
+# version3 ![img_14.png](images/img_14.png) Prompt for duplicate registration of an already registered email,
+# ![img_15.png](images/img_15.png)When registering, enter two different passwords to prompt
 
 

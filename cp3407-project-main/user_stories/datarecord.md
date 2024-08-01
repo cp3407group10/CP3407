@@ -29,8 +29,8 @@ Description-v2:In iteration2 database include courses information
 
 # Completed:
 # iteration1:
-![img_7.png](img_7.png) 
+![img_7.png](images/img_7.png) 
 # only 1 tables
-# iteration2: ![img_12.png](img_12.png) 
-![img_13.png](img_13.png) 
+# iteration2: ![img_12.png](images/img_12.png) 
+![img_13.png](images/img_13.png) 
 # save courses information

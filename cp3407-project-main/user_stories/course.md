@@ -3,10 +3,10 @@ as this [user_stories folder](./)
 
 # User story title: course(change project this user_story name: creat course to course)
 ## design simple interface
-![img_8.png](img_8.png)
+![img_8.png](images/img_8.png)
 
 ## access database to get courses information and select courses
-![img_11.png](img_11.png) 
+![img_11.png](images/img_11.png) 
 
 
 
@@ -30,6 +30,7 @@ Description-v2:In iteration2 database include courses information
 1. Task 1: Add styling to the interface, Estimation 1 day
 2. Task 2: Access database to get courses information  , Estimation 1 day
 3. Task 3: The selected course is saved in the user table
+4. Beautify the interface
 
 
 
@@ -40,8 +41,10 @@ Description-v2:In iteration2 database include courses information
 
 # Completed:
 ## version-1
-* ![img_8.png](img_8.png)
+* ![img_8.png](images/img_8.png)
 ## version-2
-* ![img_11.png](img_11.png)
+* ![img_11.png](images/img_11.png)
+## version-3
+*![img_16.png](images/img_16.png)
 
 

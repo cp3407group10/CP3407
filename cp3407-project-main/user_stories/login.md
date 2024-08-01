@@ -29,6 +29,6 @@ Description-v3:Backend functionality has been added to verify user credentials a
 # UI Design:!
 # Completed:
 # version1 
-![img_6.png](img_6.png)
+![img_6.png](images/img_6.png)
 # version2 add a login later button
-![img_10.png](img_10.png) 
+![img_10.png](images/img_10.png) 

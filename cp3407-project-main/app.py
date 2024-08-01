@@ -1,5 +1,6 @@
+from flask import Flask, request, redirect, url_for, session, render_template_string, flash
 import mysql.connector
-from flask import Flask, request, render_template_string, redirect, url_for, session,flash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.secret_key = 'sjh123'
@@ -13,20 +14,17 @@ db_config = {
     "port": 3306
 }
 
-
 @app.route('/')
 def index():
     with open('index.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
 
-
 @app.route('/about')
 def about():
     with open('about.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
-
 
 @app.route('/course')
 def course():
@@ -48,13 +46,11 @@ def course():
     except mysql.connector.Error as err:
         return f"Error: {err}"
 
-
 @app.route('/contact')
 def contact():
     with open('contact.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -63,23 +59,20 @@ def login():
         password = request.form['password']
 
         try:
-            # Connect to the database and fetch user information
             db_connection = mysql.connector.connect(**db_config)
-            cursor = db_connection.cursor()
-            select_query = "SELECT * FROM users WHERE email=%s AND password=%s"
-            cursor.execute(select_query, (email, password))
+            cursor = db_connection.cursor(dictionary=True)
+            select_query = "SELECT email, password FROM users WHERE email=%s"
+            cursor.execute(select_query, (email,))
             user = cursor.fetchone()
             cursor.close()
             db_connection.close()
 
-            # Debugging: print fetched user information
-            print(f"Fetched user: {user}")
-
-            if user:
-                session['user'] = user  # Store user information in session
+            if user and check_password_hash(user['password'], password):
+                session['user'] = {'email': user['email']}  # Store user information in session
                 return redirect(url_for('dashboard'))
             else:
-                return "Invalid email or password. Please try again."
+                flash("Invalid email or password. Please try again.", 'error')
+                return redirect(url_for('login'))
 
         except mysql.connector.Error as err:
             return f"Error: {err}"
@@ -87,7 +80,6 @@ def login():
     with open('login.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
-
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -102,45 +94,38 @@ def register():
         zip_code = request.form.get('zip', '')
 
         try:
-
             db_connection = mysql.connector.connect(**db_config)
             cursor = db_connection.cursor()
 
-
-            check_query = "SELECT * FROM users WHERE email=%s"
+            # Check if email already exists
+            check_query = "SELECT email FROM users WHERE email=%s"
             cursor.execute(check_query, (email,))
             existing_user = cursor.fetchone()
 
-
-            cursor.fetchall()
-
             if existing_user:
-                #
                 flash("This email is already registered. Please use a different email.", 'error')
                 cursor.close()
                 db_connection.close()
                 return redirect(url_for('register'))
 
-
+            hashed_password = generate_password_hash(password)
             insert_query = """
                 INSERT INTO users (fullname, email, phone, username, password, address, city, zip)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
             """
-            insert_values = (fullname, email, phone, username, password, address, city, zip_code)
+            insert_values = (fullname, email, phone, username, hashed_password, address, city, zip_code)
             cursor.execute(insert_query, insert_values)
             db_connection.commit()
 
             cursor.close()
             db_connection.close()
 
-
             success_html = """
                 <h1>Registration Successful</h1>
-                <p>Thank you for registering, {fullname}!</p>
-                <a href="{login_url}"><button>Go to Login</button></a>
-            """.format(fullname=fullname, login_url=url_for('login'))
-
-            return success_html
+                <p>Thank you for registering, {{ fullname }}!</p>
+                <a href="{{ login_url }}"><button>Go to Login</button></a>
+            """
+            return render_template_string(success_html, fullname=fullname, login_url=url_for('login'))
 
         except mysql.connector.Error as err:
             return f"Error: {err}"
@@ -149,10 +134,10 @@ def register():
         html_content = f.read()
     return render_template_string(html_content)
 
-
 @app.route('/logout')
 def logout():
     session.pop('user', None)  # Remove user from session
+    flash("You have been logged out.", 'info')
     with open('logout.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
@@ -161,10 +146,9 @@ def logout():
 def dashboard():
     if 'user' in session:
         user = session['user']
-        return f"Welcome {user[1]}! You are logged in."
+        return f"Welcome {user['email']}! You are logged in."
     return redirect(url_for('login'))
 
-# Redirect to the register route when accessing the root URL
 @app.route('/redirect_to_register')
 def redirect_to_register():
     return redirect(url_for('register'))
