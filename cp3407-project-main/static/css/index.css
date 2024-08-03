@@ -230,10 +230,10 @@ form button:hover {
 }
 
 /* Additional Styles for Carousel */
-.owl-carousel .owl-item img {
-    display: block;
+.carousel-img {
     width: 100%;
-    height: auto;
+    height: 300px; /* Set a fixed height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
 }
 
 .owl-carousel .owl-dots {
