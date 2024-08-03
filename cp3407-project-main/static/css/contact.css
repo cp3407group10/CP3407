@@ -2,12 +2,13 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f8f9fa;
 }
 
 header {
-    background: url('../images/login_background.jpg') no-repeat center center; /* Background image for the header */
-    background-size: cover; /* Cover the entire header area */
+    background: url('../images/login_background.jpg') no-repeat center center;
+    background-size: cover;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -26,21 +27,21 @@ nav {
 
 .nav-links li {
     margin-right: 40px;
-    padding: 10px; /* Added padding for better clickability */
+    padding: 10px;
 }
 
 .nav-links li a {
     text-decoration: none;
-    color: #fff; /* Ensure white color for visibility */
+    color: #fff;
     font-weight: bold;
-    font-size: 18px; /* Adjusted font size */
+    font-size: 18px;
 }
 
 .search-bar input {
-    padding: 10px 20px;  /* Adjusted padding for better spacing */
+    padding: 10px 20px;
     border: 1px solid #ddd;
     border-radius: 20px;
-    width: 500px;  /* Increased width from a default or smaller size */
+    width: 500px;
 }
 
 .logo img {
@@ -48,160 +49,137 @@ nav {
     height: auto;
 }
 
-.hero {
+main {
+    padding: 20px;
+}
+
+.submit-container {
+    text-align: center; /* Center the submit button */
+}
+
+#form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+#form h2 {
+    font-family: 'Francois One', sans-serif;
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.student-info, .time-info {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Updated to align top edges */
-    padding: 50px 20px;
+    align-items: center;
 }
 
-.hero-content {
-    max-width: 50%;
-    color: #000; /* Ensuring black text for visibility */
+.info-fields, .time-fields {
+    flex: 1;
 }
 
-.hero-content h2 {
-    font-size: 42px; /* Adjusted for larger view */
-    margin-bottom: 20px;
-    color: #000; /* Black color for headings */
+.customer-image, .time-image {
+    flex: 1;
+    text-align: center;
 }
 
-.hero-content p {
-    font-size: 20px; /* Slightly larger for better readability */
-    line-height: 1.6;
-    color: #000; /* Black color for paragraph */
-}
-
-.hero-image img {
+.customer-image img, .time-image img {
     max-width: 100%;
     height: auto;
+    border-radius: 5px;
 }
 
-.whats-new {
-    padding: 50px 20px;
-}
-
-.whats-new h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #000; /* Black color for new section headings */
-}
-
-.new-courses {
-    display: flex;
-    justify-content: space-between;
-}
-
-.course-card {
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    width: 30%;
-}
-
-.course-card img {
+textarea {
     width: 100%;
-    height: auto;
-}
-
-.course-info {
-    padding: 20px;
-    color: #000; /* Ensuring text inside courses is visible */
-}
-
-.course-info h3 {
-    font-size: 24px; /* Larger font size for course titles */
-    margin-bottom: 10px;
-    color: #000; /* Black for better visibility */
-}
-
-.course-info p {
-    font-size: 16px; /* Adjusted font size */
-    color: #555; /* Dark grey for text */
-}
-
-.refresh-button {
-    display: block;
-    margin: 30px auto;
-    padding: 10px 20px;
-    border: none;
-    background: #ddd;
-    border-radius: 20px;
-    cursor: pointer;
-    color: #000; /* Text color for the button */
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
-}
-
-.close {
-    color: #aaa;
-    float:right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"],
-form input[type="password"],
-form input[type="password"],
-form input[type="text"] {
-    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
-form button {
-    padding: 10px;
+.btn {
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    border-radius: 4px;
-    background-color: #ff8000;
-    color: white;
-    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-form button:hover {
-    background-color: #e67300;
+.btn:hover {
+    background-color: #0056b3;
+}
+
+#contact {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#contact h2 {
+    font-family: 'Francois One', sans-serif;
+    margin-bottom: 20px;
+}
+
+.contact-id h3 {
+    margin: 10px 0;
+}
+
+.tel-link, .fax-link, .contact-id {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    width: 120px;
+    margin-right: 10px;
+}
+
+.form-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px; /* Adjusted width */
 }

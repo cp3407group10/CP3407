@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Online learning platform - Contact Us</title>
+    <title>Online Learning Platform - Contact Us</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="static/css/contact.css"> <!-- Uses index.css for styling -->
+    <link rel="stylesheet" href="static/css/contact.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Roboto&display=swap" rel="stylesheet">
@@ -31,31 +31,36 @@
         <h2>Complete the form below to begin your free trial.</h2>
         <form class="form-grid" onsubmit="return validateForm()" action="/submitted">
             <fieldset>
-                <legend>Student information</legend>
+                <legend>Student Information</legend>
                 <div class="student-info">
                     <div class="info-fields">
-                        <label for="Name">Full Name:</label>
-                        <input type="text" name="Name" id="Name"><br>
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" id="email"><br>
-                        <label for="phone">Phone:</label>
-                        <input type="tel" id="phone" name="phone"><br>
+                        <div class="form-group">
+                            <label for="Name">Full Name:</label>
+                            <input type="text" name="Name" id="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
                     </div>
                     <div class="customer-image">
-                        <img src="static/images/contactp1.png" alt="Customer Image">
                     </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>Website satisfaction</legend>
+                <legend>Website Satisfaction</legend>
                 <label for="reference">Are you satisfied with the functional design of the site?</label>
                 <select name="reference" id="reference">
-                    <option value="quite">quite satisfied</option>
-                    <option value="satisfaction">satisfaction</option>
-                    <option value="common">common</option>
-                    <option value="dis">dissatisfaction</option>
-                    <option value="disgruntled">very disgruntled</option>
+                    <option value="quite">Quite satisfied</option>
+                    <option value="satisfaction">Satisfaction</option>
+                    <option value="common">Common</option>
+                    <option value="dis">Dissatisfaction</option>
+                    <option value="disgruntled">Very disgruntled</option>
                 </select>
             </fieldset>
 
@@ -65,11 +70,10 @@
                     <div class="time-fields">
                         <label for="preferredDate">Preferred Date:</label>
                         <input type="date" id="preferredDate" name="preferredDate" required><br><br>
-                        <label for="preferredTime">Preferred time:</label>
+                        <label for="preferredTime">Preferred Time:</label>
                         <input type="time" id="preferredTime" name="preferredTime" required><br><br>
                     </div>
                     <div class="time-image">
-                        <img src="static/images/time.png" alt="Time Image">
                     </div>
                 </div>
             </fieldset>
@@ -79,13 +83,15 @@
                 <label for="comments">Note:</label>
                 <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
             </fieldset>
-            <input type="submit" id="submit" value="Submit" class="btn">
+            <div class="submit-container">
+                <input type="submit" id="submit" value="Submit" class="btn">
+            </div>
         </form>
     </div>
 
     <div id="contact">
         <h2>If you want to know more information about our online learning platform or join us, you can contact us through the following ways:</h2>
-        <p class="tel-link"><a href="tel:18613939130">Chinese Tel:18613939130</a></p>
+        <p class="tel-link"><a href="tel:18613939130">Chinese Tel: 18613939130</a></p>
         <p class="fax-link"><a href="tel:83149559">Singapore Tel: 83149559</a></p>
         <div class="contact-id">
             <h3>Address: Singapore JCU University</h3>
