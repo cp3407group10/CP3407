@@ -16,7 +16,6 @@
 <body>
     <header>
         <nav>
-
             <ul class="nav-links">
                 <li><a href="/login">Login</a></li>
                 <li><a href="/register">Sign up</a></li>
@@ -35,7 +34,9 @@
 
     <main>
         <div style="height: 80px;"></div>
+
         <section class="intro-section custom-owl-carousel" id="Home">
+            <h2>About Us</h2>
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-5 mr-auto">
@@ -53,8 +54,7 @@
                             <div class="slide-text">
                                 <h1>Test Your Knowledge</h1>
                                 <p class="mb-5">Solidify your understanding through our interactive quizzes, designed to test and reinforce your knowledge after each lesson. Receive instant feedback to gauge your progress and identify areas for improvement.</p>
-                                <p><a href="/Quiz_Mathematics" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a>
-                                </p>
+                                <p><a href="/Quiz_Mathematics" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
                             </div>
                         </div>
                     </div>
@@ -74,29 +74,30 @@
         </section>
 
         <section class="whats-new">
-            <h2>What's new today</h2>
+            <h2>What's New Today</h2>
+            <div style="height: 50px;"></div>
             <div class="new-courses">
-                <div class="course-card">
+                <a href="https://www.youtube.com/watch?v=fMxUfVMOq54" target="_blank" class="course-card">
                     <img src="static/images/course1.png" alt="Course 1">
                     <div class="course-info">
-                        <h3>Aurora</h3>
-                        <p>Some nice book you might be interested in!</p>
+                        <h3>* e m m i e *</h3>
+                        <p>I asked 1,000 people what their favourite book is 👀 here are the top 20 novels!</p>
                     </div>
-                </div>
-                <div class="course-card">
+                </a>
+                <a href="https://www.youtube.com/watch?v=fH7N9YRxMYc" target="_blank" class="course-card">
                     <img src="static/images/course2.png" alt="Course 2">
                     <div class="course-info">
-                        <h3>Daniel</h3>
-                        <p>How to focus on your work?</p>
+                        <h3>RESPIRE</h3>
+                        <p>Neuroscientist: How To Boost Your Focus PERMANENTLY in Minutes</p>
                     </div>
-                </div>
-                <div class="course-card">
+                </a>
+                <a href="https://example.com/david" target="_blank" class="course-card">
                     <img src="static/images/course3.png" alt="Course 3">
                     <div class="course-info">
-                        <h3>David</h3>
-                        <p>Explore the wildlife and nature.</p>
+                        <h3>TED-Ed</h3>
+                        <p>3 tips on how to study effectively</p>
                     </div>
-                </div>
+                </a>
             </div>
             <button class="refresh-button">Refresh</button>
         </section>
@@ -109,25 +110,18 @@
             <form id="signup-form">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
-
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
-
                 <label for="phone">Phone</label>
                 <input type="text" id="phone" name="phone" required>
-
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
-
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm-password" required>
-
                 <label for="address">Address</label>
                 <input type="text" id="address" name="address" required>
-
                 <label for="postcode">Postcode</label>
                 <input type="text" id="postcode" name="postcode" required>
-
                 <button type="submit">Sign Up</button>
             </form>
         </div>
