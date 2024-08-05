@@ -14,6 +14,7 @@ db_config = {
     "port": 3306
 }
 
+
 def execute_sql_file(filename):
     with open(filename, 'r', encoding='utf-8') as file:
         sql = file.read()
@@ -25,8 +26,10 @@ def execute_sql_file(filename):
     cursor.close()
     db_connection.close()
 
+
 # Ensure the tables are created at startup
 execute_sql_file('sql/user_courses.sql')
+
 
 @app.route('/')
 def index():
@@ -34,40 +37,23 @@ def index():
         html_content = f.read()
     return render_template_string(html_content)
 
+
 @app.route('/about')
 def about():
     with open('about.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
 
-@app.route('/course')
-def course():
-    if 'user' not in session:
-        return redirect(url_for('login'))
 
-    try:
-        db_connection = mysql.connector.connect(**db_config)
-        cursor = db_connection.cursor(dictionary=True)
 
-        cursor.execute("SELECT course_id, course_name, course_content FROM courses")
-        courses = cursor.fetchall()
 
-        cursor.close()
-        db_connection.close()
-
-        with open("course.html", encoding='utf-8') as f:
-            html_content = f.read()
-
-        return render_template_string(html_content, courses=courses)
-
-    except mysql.connector.Error as err:
-        return f"Error: {err}"
 
 @app.route('/contact')
 def contact():
     with open('contact.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -102,6 +88,7 @@ def login():
     with open('login.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -156,6 +143,7 @@ def register():
         html_content = f.read()
     return render_template_string(html_content)
 
+
 @app.route('/logout')
 def logout():
     session.pop('user', None)
@@ -164,6 +152,7 @@ def logout():
         html_content = f.read()
     return render_template_string(html_content)
 
+
 @app.route('/dashboard')
 def dashboard():
     if 'user' in session:
@@ -171,9 +160,11 @@ def dashboard():
         return f"Welcome {user['email']}! You are logged in."
     return redirect(url_for('login'))
 
+
 @app.route('/redirect_to_register')
 def redirect_to_register():
     return redirect(url_for('register'))
+
 
 @app.route('/check_login_status')
 def check_login_status():
@@ -181,10 +172,47 @@ def check_login_status():
         return jsonify({'logged_in': True})
     return jsonify({'logged_in': False})
 
+@app.route('/course')
+def course():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+
+    email = session['user']['email']
+
+    try:
+        db_connection = mysql.connector.connect(**db_config)
+        cursor = db_connection.cursor(dictionary=True)
+
+       
+        cursor.execute("SELECT course_id, course_name, course_content FROM courses")
+        courses = cursor.fetchall()
+
+      
+        cursor.execute("""
+            SELECT c.course_id, c.course_name, c.course_content 
+            FROM courses c
+            JOIN user_courses uc ON c.course_name = uc.course_name
+            WHERE uc.email = %s
+        """, (email,))
+        joined_courses = cursor.fetchall()
+
+        cursor.close()
+        db_connection.close()
+
+        with open("course.html", encoding='utf-8') as f:
+            html_content = f.read()
+
+        return render_template_string(html_content, courses=courses, joined_courses=joined_courses)
+
+    except mysql.connector.Error as err:
+        return f"Error: {err}"
+
+
 @app.route('/join_course', methods=['POST'])
 def join_course():
     if 'user' not in session:
         return jsonify({'success': False, 'message': 'You need to be logged in to join a course.'})
+
 
     email = session.get('user', {}).get('email')
     if not email:
@@ -224,6 +252,7 @@ def join_course():
     except mysql.connector.Error as err:
         return jsonify({'success': False, 'message': str(err)})
 
+
 @app.route('/leave_course', methods=['POST'])
 def leave_course():
     if 'user' not in session:
@@ -251,7 +280,6 @@ def leave_course():
 
     except mysql.connector.Error as err:
         return jsonify({'success': False, 'message': str(err)})
-
 
 
 if __name__ == '__main__':
