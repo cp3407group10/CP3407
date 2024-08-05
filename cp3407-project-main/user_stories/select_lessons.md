@@ -10,8 +10,8 @@ as this [user_stories folder](./)
 
 
 
-## Priority: 20 (latest for iteration-2)
-The priority in iteration2 is 20
+## Priority: 40 (latest for iteration-3)
+The priority in iteration2 is 30
 
 
 ## Estimation: e.g. 2 days
@@ -22,7 +22,8 @@ Any notes on estimation go here. Keep your planning poker game numbers. For exam
 ## Assumptions (if any): After the student selects the course, the selected subject will be saved in the user's data table
 
 ## Description: e.g. The web page will show current deals to Orion's orbits users
-Description-v2:In iteration2 database include courses information
+Description-v1:In iteration2 database include courses information
+Description-v2:
 
 
 
