@@ -1,7 +1,9 @@
 # User story title: Information fill(same function to register)
 ## Priority: 10 (latest for iteration-1)
 The priority in iteration1 is 10
-## Priority: 30 (latest for iteration-1)
+## Priority: 30 (latest for iteration-2)
+## Priority: 40 (latest for iteration-3)
+
 
 
 ## Estimation: 1 days
@@ -22,10 +24,13 @@ Later logins will include a verification step to ensure the account exists in th
 3. Task 3: Login Verification Functionality, Estimation 1day
 4. Task 4: Access Control ,Estimation 1 day
 
-# UI Design:!
+# UI Design:
+* (New, not in the textbook)
+* ![img_6.png](img_6.png)
+* https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
 
 # Completed:
 # this is fill information screenshot
 ![img_3.png](images/img_3.png)
 # this is show this fill information have already saved in database.
-![img_5.png](images/img_5.png) 
+

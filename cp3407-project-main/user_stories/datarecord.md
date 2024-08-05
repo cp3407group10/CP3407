@@ -18,7 +18,6 @@ Description-v2:In iteration2 database include courses information
  
 
 ## Tasks, see chapter 3.
-
 1. Task 1, set up a database, Estimation 1 days
 2. Task 2, Registered accounts can be saved in the database, Estimation 1 days
 3. Task 3, During login, the account and password are verified to exist in the database
@@ -26,8 +25,8 @@ Description-v2:In iteration2 database include courses information
 
 # UI Design:
 * (New, not in the textbook)
-* Many user stories are connected to a User interface.
-* Insert a mockup design screenshot using any prototyping tools, e.g. [https://ninjamock.com/](https://ninjamock.com/)
+* ![img_3.png](img_3.png)
+* https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
 
 # Completed:
 # iteration1:only 1 tables

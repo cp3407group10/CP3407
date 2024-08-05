@@ -21,7 +21,10 @@ Description-v2:The information in the sign-up form is saved
 3. Task 3: Login requires verification that the data is in the database, Estimation 1 day
 4. Task 4: Add styling to the interface, Estimation 1 day
 
-# UI Design:!
+# UI Design:
+* (New, not in the textbook)
+* ![img_4.png](img_4.png)
+* Insert a mockup design screenshot using any prototyping tools, e.g. [https://ninjamock.com/](https://ninjamock.com/)
 
 # Completed:
 # version1 ![img.png](images/img.png)

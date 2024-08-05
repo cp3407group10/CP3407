@@ -29,7 +29,9 @@ Description-v5: The selection and removal of subjects will be recorded in real t
 3. Task 3: Save the created course information in a database, Estimation 1 day
 4. Task 4: Add styling to the interface, Estimation 1 day
 
-# UI Design:!
+# UI Design:
+* (New, not in the textbook)
+* https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
 
 # Completed: just one version
 ![img_1.png](img_1.png)

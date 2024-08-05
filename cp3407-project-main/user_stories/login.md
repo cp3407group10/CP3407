@@ -2,6 +2,7 @@
 ## Priority: 10 (latest for iteration-1)
 
 ## Priority: 10 (latest for iteration-2)
+## Priority: 20 (latest for iteration-3)
 
 ## Estimation: 3 days
 * Jiahao Song: 2 day(implement function)
@@ -27,6 +28,9 @@ Description-v3:Backend functionality has been added to verify user credentials a
 
 
 # UI Design:!
+*![img_11.png](img_11.png)
+* https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
+
 # Completed:
 # version1 
 ![img_6.png](images/img_6.png)

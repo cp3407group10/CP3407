@@ -30,7 +30,7 @@ Description-v1: e.g. The web site will show current deals to Orion's orbits user
 2. ...
 
 
-# UI Design:
+# UI Design:https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
 * (New, not in the textbook) 
 * Many user stories are connected to a User interface.
 * Insert a mockup design screenshot using any prototyping tools, e.g. [https://ninjamock.com/](https://ninjamock.com/)
@@ -39,4 +39,5 @@ Description-v1: e.g. The web site will show current deals to Orion's orbits user
 * (New, not in the textbook) 
 * Insert screenshots of completed. 
 * If you have multiple versions (changes between iteractions), show them all.
+
 

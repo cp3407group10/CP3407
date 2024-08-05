@@ -1,7 +1,7 @@
 Create more md files like this one as needed. Place them into the same folder
-as this [user_stories folder](./)
+as this 
 
-# User story title: course(change project this user_story name: creat course to course)
+# User story title: select_course(change project this user_story name: creat course to course)
 ## design simple interface
 ![img_8.png](images/img_8.png)
 
@@ -37,7 +37,7 @@ Description-v2:
 
 # UI Design:
 * (New, not in the textbook)
-* Many user stories are connected to a User interface.
+* ![img_5.png](img_5.png)
 * Insert a mockup design screenshot using any prototyping tools, e.g. [https://ninjamock.com/](https://ninjamock.com/)
 
 # Completed:
