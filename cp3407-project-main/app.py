@@ -54,6 +54,40 @@ def contact():
         html_content = f.read()
     return render_template_string(html_content)
 
+@app.route('/submit_feedback', methods=['POST'])
+def submit_feedback():
+    name = request.form.get('Name')
+    email = request.form.get('email')
+    phone = request.form.get('phone')
+    satisfaction = request.form.get('reference')
+    preferred_date = request.form.get('preferredDate')
+    preferred_time = request.form.get('preferredTime')
+    comments = request.form.get('comments')
+
+    try:
+        db_connection = mysql.connector.connect(**db_config)
+        cursor = db_connection.cursor()
+
+        insert_query = """
+            INSERT INTO feedback (name, email, phone, satisfaction, preferred_date, preferred_time, comments)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """
+        insert_values = (name, email, phone, satisfaction, preferred_date, preferred_time, comments)
+        cursor.execute(insert_query, insert_values)
+        db_connection.commit()
+
+        cursor.close()
+        db_connection.close()
+
+        with open('success.html', encoding='utf-8') as f:
+            success_html_content = f.read()
+
+        return render_template_string(success_html_content)
+
+    except mysql.connector.Error as err:
+        flash(f"Error: {err}", 'error')
+        return redirect(url_for('contact'))
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

@@ -1,7 +1,7 @@
 # User story title: online_video
 ## Priority: 20 (latest for iteration-2)
 ## Priority: 40 (latest for iteration-3)
-## Priority: 50 (latest for iteration-4)
+
 
 ## Estimation: 2 days
 * Jiahao Song: 1 day(implement function)
@@ -29,4 +29,5 @@ Description-v1:Users can click on the connection and jump to the video playback
 # version1
 ![img_10.png](img_10.png)
 # version2 
+![img_14.png](img_14.png)
 

@@ -2,6 +2,7 @@
 
 ## Priority: 10 (latest for iteration-1)
 ## Priority: 10 (latest for iteration-2)
+## Priority：10 （iteration-3）
 
 ## Estimation: 2 days
 * Jiahao Song: 2 day (estimated before iteration-1)
@@ -25,14 +26,17 @@ Description-v2:In iteration2 database include courses information
 
 # UI Design:
 * (New, not in the textbook)
-* ![img_3.png](img_3.png)
+*  no design
 * https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
 
 # Completed:
 # iteration1:only 1 tables
 ![img_7.png](images/img_7.png)
 
-# iteration2: ![img_12.png](images/img_12.png) 
+# iteration2: 
+![img_12.png](images/img_12.png) 
+
+# iteration 3：
 ![img_13.png](images/img_13.png) 
 # Data tables for users and courses are created
 ![img.png](img.png)

@@ -1,6 +1,5 @@
 # User story title: sign up
 ## Priority: 10 (latest for iteration-1)
-
 ## Priority: 30 (latest for iteration-2)
 
 ## Estimation: 3 days

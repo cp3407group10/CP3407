@@ -1,6 +1,5 @@
 # User story title: login in
 ## Priority: 10 (latest for iteration-1)
-
 ## Priority: 10 (latest for iteration-2)
 ## Priority: 20 (latest for iteration-3)
 

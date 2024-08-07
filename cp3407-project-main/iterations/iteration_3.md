@@ -11,7 +11,7 @@ Checklist:
 User stories or tasks (see chapter 2):
 1. [select_course](../user_stories/select_course.md), priority 20, 4 days
 2. [feedback](../user_stories/feedback.md), priority 30, 1 days
-3. [improve_system](../user_stories/improve_system.md), priority 40, 3 days
+3. [Test](../user_stories/compete_tests.md), priority 40, 3 days
 4. [adjust_function](../user_stories/adjust_function.md), priority 40, 3 days
 
 In progress:

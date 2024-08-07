@@ -29,7 +29,18 @@
 <main>
     <div id="form">
         <h2>Feedback</h2>
-        <form class="form-grid" onsubmit="return validateForm()" action="/submitted">
+        <!-- Display flash messages here -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flashes">
+            {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <!-- Update the form tag here -->
+        <form class="form-grid" onsubmit="return validateForm()" action="/submit_feedback" method="POST">
             <fieldset>
                 <legend>Student Information</legend>
                 <div class="student-info">
