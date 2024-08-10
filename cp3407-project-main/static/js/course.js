@@ -1,5 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
-    checkLoginStatus();
+document.addEventListener('DOMContentLoaded', function () {
+    const courses = document.querySelectorAll('.course');
+    courses.forEach(course => {
+        course.addEventListener('click', function (event) {
+            // Check if the clicked element is not the button
+            if (event.target.tagName !== 'BUTTON') {
+                const url = this.dataset.url;
+                window.location.href = url;
+            }
+        });
+    });
 });
 
 function checkLoginStatus() {
