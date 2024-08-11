@@ -86,7 +86,7 @@ function joinSession(button) {
                 button.parentElement.remove();
                 checkAvailableCourses();
             } else {
-                alert('Failed to join the course. Please try again.');
+                alert('Failed to join the course. Please try again, may be you have been selected this course');
             }
         })
         .catch(error => {

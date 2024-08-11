@@ -36,4 +36,3 @@ Update this at least once per week
 * 0 weeks left, 0 days
 * Actual Velocity: 2 days per week
 * ![img_1.png](img_1.png)
-* ![img_2.png](img_2.png)

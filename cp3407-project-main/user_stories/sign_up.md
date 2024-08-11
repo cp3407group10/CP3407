@@ -22,7 +22,7 @@ Description-v2:The information in the sign-up form is saved
 
 # UI Design:
 * (New, not in the textbook)
-* ![img_4.png](img_4.png)
+#![img_4.png](images/img_21.png)
 * Insert a mockup design screenshot using any prototyping tools, e.g. [https://ninjamock.com/](https://ninjamock.com/)
 
 # Completed:

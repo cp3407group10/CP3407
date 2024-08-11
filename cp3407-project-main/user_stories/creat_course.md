@@ -2,7 +2,7 @@ Create more md files like this one as needed. Place them into the same folder
 as this [user_stories folder](./)
 
 # User story title: Creat Course
-## Create courses in sql![img_1.png](img_1.png)
+## Create courses in sql![img_1.png](images/img_18.png)
 
 
 ## Priority: 20
@@ -34,8 +34,9 @@ Description-v5: The selection and removal of subjects will be recorded in real t
 * https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
 
 # Completed: just one version
-![img_1.png](img_1.png)
-
+![img_1.png](images/img_18.png)
+# created course to show the website
+![img_1.png](images/img_35.png)
 
 
 

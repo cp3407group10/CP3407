@@ -26,11 +26,13 @@ Later logins will include a verification step to ensure the account exists in th
 
 # UI Design:
 * (New, not in the textbook)
-* ![img_6.png](img_6.png)
+* ![img_6.png](images/img_23.png)
 * https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
 
 # Completed:
 # this is fill information screenshot
 ![img_3.png](images/img_3.png)
-# this is show this fill information have already saved in database.
+
+# this is show this fill information have already saved in database and using hash_secret to protect password
+![img.png](images/img_40.png)
 

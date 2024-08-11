@@ -21,13 +21,13 @@ Description-v1:Users can click on the connection and jump to the video playback
 
 
 # UI Design:!
-*![img_9.png](img_9.png)
+*![img_9.png](images/img_26.png)
 * https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
 
 
 # Completed:
 # version1
-![img_10.png](img_10.png)
+![img_10.png](images/img_27.png)
 # version2 
-![img_14.png](img_14.png)
+![img_14.png](images/img_31.png)
 

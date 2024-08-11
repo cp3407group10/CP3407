@@ -3,10 +3,10 @@ as this
 
 # User story title: select_course(change project this user_story name: creat course to course)
 ## design simple interface
-![img_8.png](images/img_8.png)
+
 
 ## access database to get courses information and select courses
-![img_11.png](images/img_11.png) 
+
 
 
 
@@ -37,7 +37,7 @@ Description-v2:
 
 # UI Design:
 * (New, not in the textbook)
-* ![img_5.png](img_5.png)
+* ![img_5.png](images/img_22.png)
 * Insert a mockup design screenshot using any prototyping tools, e.g. [https://ninjamock.com/](https://ninjamock.com/)
 
 # Completed:
@@ -50,4 +50,7 @@ Description-v2:
 ## version-4
 You can access the course interface only after logging in successfully. If you do not log in, click the course interface to jump to the login interface
 * ![img.png](images/course.png)
+
+## user can select their course and can to see. 
+* ![img.png](images/img_41.png)
 

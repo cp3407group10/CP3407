@@ -34,4 +34,4 @@ Update this at least once per week
 * 1 weeks left, 3 days
 * 0 weeks left， 0 days
 * Actual Velocity:
-* ![img_5.png](img_5.png)
+* ![img_6.png](img_6.png)

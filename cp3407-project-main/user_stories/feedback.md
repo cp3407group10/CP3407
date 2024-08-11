@@ -22,16 +22,16 @@ Description-v2:The information in the feedback form is saved to database
 4. Task 4: Add styling to the interface, Estimation 1 day
 
 # UI Design:!
-* ![img_7.png](img_7.png)
+* ![img_7.png](images/img_24.png)
 * https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
 
 # Completed:
 ## version-1
-* ![img_17.png](img_17.png)
+* ![img_17.png](images/img_17.png)
 ## version-2
-* ![img_8.png](img_8.png)
+* ![img_8.png](images/img_25.png)
 ## version-3
-* ![img_16.png](img_16.png)
+* ![img_16.png](images/img_33.png)
 
 
 

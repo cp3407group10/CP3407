@@ -27,7 +27,7 @@ Description-v3:Backend functionality has been added to verify user credentials a
 
 
 # UI Design:!
-*![img_11.png](img_11.png)
+*![img_11.png](images/img_28.png)
 * https://www.figma.com/design/x5H44M9Qn34B1flDiPB7gV/CP3407?node-id=0- 1&t=J5QMXXerU4TbwwtP-0
 
 # Completed:
