@@ -168,9 +168,9 @@ def dashboard():
     if 'user' in session:
         user = session['user']
         return render_template_string(f'''
-            <h1>欢迎, {user["fullname"]}!</h1>
-            <p>你的邮箱是: {user["email"]}</p>
-            <a href="{url_for("logout")}">注销</a>
+            <h1>Welcome, {user["fullname"]}!</h1>
+            <p>Your email is: {user["email"]}</p>
+            <a href="{url_for("logout")}">log out</a>
         ''')
     return redirect(url_for('login'))
 
