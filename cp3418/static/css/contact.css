@@ -1,0 +1,205 @@
+/* Resets */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f8f9fa;
+    height: 100%;
+}
+
+/* Adding a background image with transparency */
+main::before {
+    content: "";
+    background: url('../images/feedback_background.jpg') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5; /* Adjust the opacity as needed */
+    z-index: -1; /* Ensure it is behind the main content */
+}
+
+header {
+    background: url('../images/login_background.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-right: 40px;
+    padding: 10px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.search-bar input {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 500px;
+    color: #000;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#form {
+    background-color: rgba(255, 255, 255, 0.9); /* Adding a semi-transparent background to the form */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+#form h2 {
+    font-family: 'Francois One', sans-serif;
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Adding a semi-transparent background to fieldset */
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Adding a semi-transparent background to legend */
+}
+
+.student-info, .time-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-fields, .time-fields {
+    flex: 1;
+}
+
+.customer-image, .time-image {
+    flex: 1;
+    text-align: center;
+}
+
+.customer-image img, .time-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.submit-container {
+    text-align: center;
+}
+
+#contact {
+    background-color: rgba(255, 255, 255, 0.9); /* Adding a semi-transparent background to the contact section */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#contact h2 {
+    font-family: 'Francois One', sans-serif;
+    margin-bottom: 20px;
+}
+
+.contact-id h3 {
+    margin: 10px 0;
+}
+
+.tel-link, .fax-link, .contact-id {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    width: 120px;
+    margin-right: 10px;
+}
+
+.form-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+}

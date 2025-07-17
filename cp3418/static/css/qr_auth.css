@@ -1,0 +1,22 @@
+/* qr_auth.css */
+#slider {
+    width: 320px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #ddd;
+    position: relative;
+    user-select: none;
+    margin: 20px auto;
+}
+
+#handle {
+    width: 50px;
+    height: 50px;
+    background-color: #4caf50;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    touch-action: none; /* 防止触屏滑动页面 */
+}

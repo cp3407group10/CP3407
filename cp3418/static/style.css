@@ -1,0 +1,19 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 30px;
+    background-color: #f9f9f9;
+}
+
+nav {
+    font-size: 18px;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}扫码确认{% endblock %}
+
+{% block content %}
+<h3>请滑动滑块确认操作</h3>
+<div id="slider" style="width:300px; height:40px; background:#ddd; position:relative; user-select:none;">
+    <div id="handle" style="width:40px; height:40px; background:#4caf50; position:absolute; left:0; cursor:pointer;"></div>
+    <span id="text" style="line-height:40px; margin-left:50px; user-select:none;">请滑动确认</span>
+</div>
+
+<script>
+    const slider = document.getElementById('slider');
+    const handle = document.getElementById('handle');
+    const text = document.getElementById('text');
+    const token = "{{ token }}";
+    let isDragging = false;
+
+    handle.onmousedown = () => isDragging = true;
+    document.onmouseup = () => {
+        if (isDragging) {
+            isDragging = false;
+            const threshold = slider.offsetWidth - handle.offsetWidth - 10;
+            if (parseInt(handle.style.left) > threshold) {
+                text.innerText = "确认成功！";
+                fetch(`/verify_qr/${token}`, {method: 'POST'}).then(() => {
+                    alert("已确认登录！");
+                });
+            } else {
+                handle.style.left = '0px';
+            }
+        }
+    };
+    document.onmousemove = (e) => {
+        if (!isDragging) return;
+        let newLeft = e.clientX - slider.getBoundingClientRect().left - handle.offsetWidth / 2;
+        newLeft = Math.max(0, Math.min(newLeft, slider.offsetWidth - handle.offsetWidth));
+        handle.style.left = newLeft + 'px';
+    };
+</script>
+{% endblock %}

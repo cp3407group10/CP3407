@@ -1,0 +1,240 @@
+/* Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #000;  /* Ensuring black text for visibility */
+}
+
+header {
+    background: url('../images/login_background.jpg') no-repeat center center; /* Background image for the header */
+    background-size: cover; /* Cover the entire header area */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff; /* White color text for visibility against the dark background */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-right: 40px; /* Space between menu items */
+    padding: 10px; /* Padding for better clickability */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff; /* White color for links for visibility */
+    font-weight: bold;
+    font-size: 18px; /* Increased font size for better visibility */
+}
+
+.search-bar input {
+    padding: 10px 20px;  /* Increased padding for aesthetic spacing */
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 500px;  /* Increased width for a larger search box */
+    color: #000; /* Ensuring text is visible */
+}
+
+.logo img {
+    width: 80px; /* Size of the logo adjusted for consistency */
+    height: auto;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.user-info img.user-photo {
+    border-radius: 50%;
+    width: 100px;
+}
+
+.courses-section, .created-courses {
+    padding: 20px;
+}
+
+.courses-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows for wrapping in smaller screens */
+    justify-content: flex-start; /* Ensure items start from the left */
+}
+
+.course {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 45%; /* Adjust width to better utilize space */
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px; /* Set a fixed height */
+    position: relative; /* Relative positioning for overlay */
+}
+
+.course h3, .course p {
+    z-index: 2; /* Ensure text is above overlay */
+    color: #fff; /* Default to white text for contrast */
+}
+
+.course::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1; /* Ensure overlay is below text but above background image */
+}
+
+.course h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.course p {
+    flex-grow: 1;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.course button {
+    align-self: flex-start;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+    z-index: 2; /* Ensure button is above overlay */
+}
+
+button.join {
+    background-color: #007bff;
+    color: white;
+}
+
+button.leave {
+    background-color: #ff0000;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Ensure text inside the header is visible on top of the background image */
+header nav a, header nav a:visited {
+    color: #fff;
+}
+
+/* Specific background styles for each course based on course name */
+.course-introduction_to_python {
+    background: url('../images/introduction_to_python_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-data_structures_and_algorithms {
+    background: url('../images/data_structures_and_algorithms_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-web_development {
+    background: url('../images/web_development_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-database_systems {
+    background: url('../images/database_systems_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-operating_systems {
+    background: url('../images/operating_systems_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-computer_networks {
+    background: url('../images/computer_networks_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-software_engineering {
+    background: url('../images/software_engineering_bg.png') no-repeat center center;
+    background-size: cover;
+}
+
+.course-artificial_intelligence {
+    background: url('../images/artificial_intelligence_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-cybersecurity {
+    background: url('../images/cybersecurity_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-cloud_computing {
+    background: url('../images/cloud_computing_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-mobile_app_development {
+    background: url('../images/mobile_app_development_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-data_science {
+    background: url('../images/data_science_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.course-game_development {
+    background: url('../images/game_development_bg.png') no-repeat center center;
+    background-size: cover;
+}
+
+.course-machine_learning {
+    background: url('../images/machine_learning_bg.png') no-repeat center center;
+    background-size: cover;
+}
+
+.course-blockchain_technology {
+    background: url('../images/blockchain_technology_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.no-courses-message {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 45%;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+

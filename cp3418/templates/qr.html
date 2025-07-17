@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Refresh the QR code{% endblock %}
+{% block content %}
+<h2>Scan the code to log in.</h2>
+<p>Please scan the QR code with your mobile phone to log in.</p>
+
+<img src="{{ url_for('qr_auth.qr_code') }}" alt="二维码" style="width:200px;height:200px;">
+
+<script>
+    setInterval(async () => {
+        let res = await fetch('/qr-auth/check-login');
+        let data = await res.json();
+        if (data.logged_in) {
+            window.location.href = '/dashboard';
+        }
+    }, 2000);
+</script>
+{% endblock %}
