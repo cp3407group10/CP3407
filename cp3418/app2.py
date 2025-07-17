@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 app.secret_key = 'sjh123'
 
-# 注册扫码登录蓝图
+
 app.register_blueprint(qr_bp)
 
 @app.route('/')
