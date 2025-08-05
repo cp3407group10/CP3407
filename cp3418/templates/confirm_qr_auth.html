@@ -1,0 +1,25 @@
+<script>
+    function confirmAuthorization() {
+        const selectedReasons = [];
+        document.querySelectorAll('input[name="reason"]:checked').forEach(el => {
+            selectedReasons.push(el.value);
+        });
+
+        fetch(`/qr-auth/confirm/{{ token }}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({reasons: selectedReasons})
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert('Authorization successful！');
+                    window.location.href = '/';
+                } else {
+                    alert('Authorization failed, please try again');
+                }
+            })
+            .catch(error => {
+                alert('Network error: ' + error.message);
+            });
+    }
+</script>

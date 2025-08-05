@@ -43,24 +43,169 @@
         text.innerText = 'Confirmation of success！';
         handle.style.backgroundColor = '#2e7d32';
 
-        fetch(`/qr-auth/confirm/{{ token }}`, { method: 'POST' })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Authorization successful. You can now close this page.');
-                    window.close();  // 可根据需要保留或移除
+        // first window
+        const permissionDialog = document.createElement('div');
+        permissionDialog.style = `
+        position:fixed; top:0; left:0; width:100%; height:100%;
+        background:rgba(0,0,0,0.6); display:flex;
+        justify-content:center; align-items:center; z-index:10000;
+    `;
+
+        permissionDialog.innerHTML = `
+        <div style="background:#fff; padding:20px; border-radius:10px; width:300px; text-align:center;">
+            <h3>Permission request</h3>
+            <p>Is it allowed to access your account information and account settings?</p>
+            <p><small>(Buttons will be enabled after 5 seconds.)</small></p>
+            <div style="margin-top: 20px;">
+                <button id="allowBtn" style="margin-right: 10px; padding: 6px 12px;" disabled>YES</button>
+                <button id="denyBtn" style="padding: 6px 12px;" disabled>NO</button>
+            </div>
+        </div>
+    `;
+        document.body.appendChild(permissionDialog);
+
+        const allowBtn = permissionDialog.querySelector('#allowBtn');
+        const denyBtn = permissionDialog.querySelector('#denyBtn');
+
+        // User will be allowed to click the button after 5 seconds
+        setTimeout(() => {
+            allowBtn.disabled = false;
+            denyBtn.disabled = false;
+        }, 5000);
+
+        // Only after clicking "YES" will the page be redirected.
+        allowBtn.addEventListener('click', () => {
+            allowAction();
+        });
+
+        denyBtn.addEventListener('click', () => {
+            denyAction();
+        });
+
+
+        function allowAction() {
+
+            permissionDialog.remove();
+
+            // second window enter sentence to log
+            const inputDialog = document.createElement('div');
+            inputDialog.style = `position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:10001;`;
+            inputDialog.innerHTML = `
+        <div style="background:#fff; padding:20px; border-radius:10px; width:340px; text-align:center;">
+            <h3>Final Confirmation</h3>
+            <p>Please enter <strong>one</strong> of the following to authorize:</p>
+            <p>Please enter "I give testapp access to GPS and contact to ues them at all time/while using the app" to login</p>
+            <input id="input1" type="text" placeholder="Text..." style="width:90%; padding:8px; margin-top:10px;" />
+            <p>OR</p>
+            <p>Please enter "I'm letting testapp know my exact location, places I often visit, my home address and access to my contacts" to login</p>
+            <input id="input2" type="text" placeholder="Text..." style="width:90%; padding:8px; margin-top:10px;" />
+            <div style="margin-top:20px;">
+                <button id="confirmBtn" style="padding:6px 12px; margin-right:10px;">Confirm</button>
+                <button id="denyBtnFinal" style="padding:6px 12px;">Deny</button>
+            </div>
+        </div>`;
+            document.body.appendChild(inputDialog);
+
+            const confirmBtn = inputDialog.querySelector('#confirmBtn');
+            const denyBtnFinal = inputDialog.querySelector('#denyBtnFinal');
+            const input1 = inputDialog.querySelector('#input1');
+            const input2 = inputDialog.querySelector('#input2');
+
+            confirmBtn.addEventListener('click', () => {
+                const val1 = input1.value.trim();
+                const val2 = input2.value.trim();
+
+                const valid1 = val1 === 'I give testapp access to GPS and contact to ues them at all time/while using the app';
+                const valid2 = val2 === "I'm letting testapp know my exact location, places I often visit, my home address and access to my contacts";
+
+                if (valid1 || valid2) {
+                    inputDialog.remove();
+
+
+                    const reasonDialog = document.createElement('div');
+                    reasonDialog.style = `position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:10002;`;
+                    reasonDialog.innerHTML = `
+                <div style="background:#fff; padding:20px; border-radius:10px; width:340px; text-align:left;">
+                    <h3>Reason check</h3>
+                    <p>Tick the suitable options:<br>“I give <strong>testapp</strong> access to GPS because…”</p>
+                    <div style="background:#f5eefc; padding:10px; border-radius:8px;">
+                        <label><input type="checkbox" class="reason-check" value="It’s a map app"> It’s a map app</label><br>
+                        <label><input type="checkbox" class="reason-check" value="I want it to know my location 24/7"> I want it to know my location 24/7</label><br>
+                        <label><input type="checkbox" class="reason-check" value="Other"> etc</label>
+                    </div>
+                    <div style="text-align:center; margin-top:15px;">
+                        <button id="submitReason" style="padding:6px 12px;">Submit</button>
+                    </div>
+                </div>`;
+                    document.body.appendChild(reasonDialog);
+
+                    document.getElementById('submitReason').addEventListener('click', () => {
+                        const selectedReasons = Array.from(reasonDialog.querySelectorAll('.reason-check'))
+                            .filter(cb => cb.checked)
+                            .map(cb => cb.value);
+
+                        if (selectedReasons.length === 0) {
+                            alert('Please select at least one reason.');
+                            return;
+                        }
+
+                        reasonDialog.remove();
+
+
+                        fetch(`/qr-auth/confirm/{{ token }}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                reasons: selectedReasons
+                            })
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    alert('Authorization successful. You can now close this page.');
+                                    window.close();
+                                } else {
+                                    alert('Authorization failed. Please try again.');
+                                    resetSlider();
+                                }
+                            })
+                            .catch(() => {
+                                alert('Network error. Please try again.');
+                                resetSlider();
+                            });
+                    });
+
                 } else {
-                    alert('Authorization failed. Please try again');
+                    alert('Input error. Authorization has been cancelled.');
+                    inputDialog.remove();
                     resetSlider();
                 }
-            })
-            .catch(() => {
-                alert('Network error. Please try again.');
-                resetSlider();
             });
+
+            denyBtnFinal.addEventListener('click', () => {
+                alert('You have declined the authorization. Login terminated.');
+                inputDialog.remove();
+                resetSlider();
+                window.close();
+            });
+        }
+
+        function denyAction() {
+
+            permissionDialog.remove();
+            alert('You have declined the authorization, and the login has been terminated.');
+            window.close();
+        }
+
+        allowBtn.addEventListener('click', allowAction);
+        denyBtn.addEventListener('click', denyAction);
     }
 
-    // 鼠标事件
+
+
+
     handle.addEventListener('mousedown', e => {
         isDragging = true;
     });
@@ -83,7 +228,7 @@
         handle.style.left = newLeft + 'px';
     });
 
-    // 触控事件
+
     handle.addEventListener('touchstart', e => {
         e.preventDefault();
         isDragging = true;

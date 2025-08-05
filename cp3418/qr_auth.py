@@ -4,6 +4,7 @@ import qrcode
 from io import BytesIO
 import datetime
 import requests
+from flask import redirect, render_template_string
 
 qr_bp = Blueprint('qr_auth', __name__, url_prefix='/qr-auth')
 
@@ -69,8 +70,14 @@ def qr_login(token):
 @qr_bp.route('/confirm/<token>', methods=['POST'])
 def confirm(token):
     if token not in qr_sessions:
-        return jsonify({'success': False, 'message': '无效的token'})
+        return jsonify({'success': False, 'message': 'invalid token'})
 
+    data = request.get_json()
+    reasons = data.get('reasons', [])
+
+    # Backend validation logic: "It’s a map app" must be selected and can only be selected.
+    if reasons != ["It’s a map app"]:
+        return jsonify({'success': False, 'message': 'Invalid authorization reason'}), 403
 
     user = {
         'id': 1,

@@ -1,14 +1,15 @@
 from flask import Flask, render_template_string, request, redirect, url_for, session, flash, jsonify
-from qr_auth import qr_bp
+from qr_auth import qr_bp, qr_sessions
 from config import db_config
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = 'sjh123'
+app.secret_key = 'sjh4396'
 
 
 app.register_blueprint(qr_bp)
+
 
 @app.route('/')
 def index():
@@ -98,6 +99,43 @@ def login():
     with open('templates/login.html', encoding='utf-8') as f:
         html_content = f.read()
     return render_template_string(html_content)
+
+@app.route('/qr-auth/confirm/<token>', methods=['POST'])
+def confirm_qr_auth(token):
+    data = request.get_json()
+    reasons = data.get('reasons', [])
+
+    try:
+        db_connection = mysql.connector.connect(**db_config)
+        cursor = db_connection.cursor()
+
+        # 先检查 token 是否有效
+        cursor.execute("SELECT token FROM tokens WHERE token=%s AND status='active'", (token,))
+        token_row = cursor.fetchone()
+
+        if not token_row:
+            cursor.close()
+            db_connection.close()
+            return jsonify({'success': False, 'message': '无效的token'})
+
+
+        insert_query = "INSERT INTO auth_logs (token, reasons) VALUES (%s, %s)"
+        cursor.execute(insert_query, (token, ','.join(reasons)))
+
+
+        cursor.execute("UPDATE tokens SET status='used' WHERE token=%s", (token,))
+
+        db_connection.commit()
+        cursor.close()
+        db_connection.close()
+
+        return jsonify({'success': True})
+
+    except Exception as e:
+        print("数据库操作失败:", e)
+        return jsonify({'success': False, 'message': str(e)})
+
+
 
 
 @app.route('/register', methods=['GET', 'POST'])
